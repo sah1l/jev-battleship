@@ -7,6 +7,8 @@ tests what that is worth on a task with an unambiguous score, Battleship, in two
 - **a web game** where a person plays Jev and sees its shot distribution printed on their own chart
 - **a CLI arena** where Jev and a general-purpose LLM attack identical hidden fleets, fewest shots wins
 
+Play it at **[jev-battleship.vercel.app](https://jev-battleship.vercel.app)**.
+
 ![A game in progress: shots on the left chart, Jev's probability heatmap on the right](media/demo.gif)
 
 ## One rule: no strategy in code
@@ -117,8 +119,9 @@ vercel --prod
 ```
 
 The API key stays on the server. Requests to `/api/shot` are same-origin checked, rate limited per
-instance, and validated before they reach Jev. For a link preview, point `og:image` in
-`public/index.html` at the absolute URL of `/og.png` after the first deploy.
+instance, and validated before they reach Jev. If you deploy your own copy, change `og:url` and
+`og:image` in `public/index.html` to your domain: those have to be absolute, because LinkedIn and X
+will not resolve a relative image.
 
 ## What is in here
 
