@@ -105,6 +105,8 @@ and after comparison. The arena needs `AWS_BEARER_TOKEN_BEDROCK` for Claude on B
 
 ## Deploy
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sah1l/jev-battleship&env=TYPESAFE_API_KEY&envDescription=Your%20TypeSafe%20AI%20key,%20used%20server%20side%20only)
+
 The game is a static page plus one serverless function, so any Vercel project works:
 
 ```
