@@ -86,9 +86,15 @@ Jev lost both, two hits short each time. `python arena/render_chrome.py` renders
 
 ![Claude Fable 5.1 against Jev, turn by turn](arena/assets/race-fable.gif)
 
+![Astra playing through Codex against Jev, turn by turn](arena/assets/race-astra.gif)
+
 A caveat on latency: in the browser matches Jev averaged 814 ms and 963 ms per call, not 388 ms.
 The agents took 14 to 19 seconds per turn, so most calls paid for a fresh connection. Quote the
 arena figure for back to back use, and the browser figure for a slow interactive turn.
+
+Both series and both browser games in one card:
+
+![Scorecard: Jev against Claude Sonnet 4.6, Claude Fable 5.1, Astra and MiniMax M3](arena/assets/summary.png)
 
 ## Run it locally
 
