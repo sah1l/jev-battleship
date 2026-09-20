@@ -1,0 +1,6999 @@
+{
+ "seed": 20261501,
+ "games": 5,
+ "region": "ap-south-1",
+ "startedAt": "2026-09-20T06:50:11.720Z",
+ "captains": {
+  "jev": {
+   "name": "Jev 1.13",
+   "vendor": "TypeSafe AI",
+   "price": {
+    "in": 0.042,
+    "out": 0.042
+   }
+  },
+  "sonnet": {
+   "name": "Claude Sonnet 4.6",
+   "vendor": "Anthropic via Bedrock",
+   "model": "global.anthropic.claude-sonnet-4-6",
+   "price": {
+    "in": 3,
+    "out": 15
+   }
+  },
+  "minimax": {
+   "name": "MiniMax M3",
+   "vendor": "MiniMax",
+   "model": "MiniMax-M3",
+   "price": {
+    "in": 0.3,
+    "out": 1.2
+   }
+  }
+ },
+ "wrapper": "Evaluate the following structured decision request. Use its state, instructions, and criteria. Return only a JSON object with one string field, \"choice\", whose value is one supplied option key. Do not include explanations or markdown.",
+ "rules": "Both captains attack the same hidden fleet with the same prompt and option order. Fewest shots wins; ties go to the first shooter, which alternates by game. The text models run at temperature 0 without extended thinking. Code only checks that a shot is legal.",
+ "series": [
+  {
+   "rival": "sonnet",
+   "games": [
+    {
+     "game": 1,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        25,
+        33,
+        41,
+        49
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        0,
+        8,
+        16
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        37,
+        45,
+        53
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        34,
+        42
+       ]
+      }
+     ],
+     "first": "jev",
+     "winner": "sonnet",
+     "jev": {
+      "captain": "jev",
+      "shots": 33,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 123605,
+      "outTok": 13266,
+      "costUsd": 0.005748582,
+      "medianMs": 399,
+      "totalSeconds": 14.7,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1492,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...................................o............................",
+        "choice": "C3",
+        "ms": 388,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..................o................o............................",
+        "choice": "D5",
+        "ms": 390,
+        "inTok": 4713,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................o.........o......o............................",
+        "choice": "F6",
+        "ms": 417,
+        "inTok": 4633,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................o.........o......o.........x..................",
+        "choice": "F5",
+        "ms": 390,
+        "inTok": 4553,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..................o.........o......o........ox..................",
+        "choice": "F7",
+        "ms": 399,
+        "inTok": 4481,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "..................o.........o......o........oxo.................",
+        "choice": "D6",
+        "ms": 379,
+        "inTok": 4413,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "..................o.........oo.....o........oxo.................",
+        "choice": "E6",
+        "ms": 367,
+        "inTok": 4341,
+        "outTok": 474,
+        "result": "hit"
+       },
+       {
+        "n": 9,
+        "board": "..................o.........oo.....o.x......oxo.................",
+        "choice": "G6",
+        "ms": 371,
+        "inTok": 4273,
+        "outTok": 466,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 10,
+        "board": "..................o.........oo.....o.#......o#o......#..........",
+        "choice": "A1",
+        "ms": 373,
+        "inTok": 4206,
+        "outTok": 458,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "x.................o.........oo.....o.#......o#o......#..........",
+        "choice": "A2",
+        "ms": 434,
+        "inTok": 4142,
+        "outTok": 450,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "xo................o.........oo.....o.#......o#o......#..........",
+        "choice": "B1",
+        "ms": 357,
+        "inTok": 4078,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "xo......x.........o.........oo.....o.#......o#o......#..........",
+        "choice": "C1",
+        "ms": 364,
+        "inTok": 4014,
+        "outTok": 434,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 14,
+        "board": "#o......#.......#.o.........oo.....o.#......o#o......#..........",
+        "choice": "B4",
+        "ms": 421,
+        "inTok": 3955,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "#o......#..o....#.o.........oo.....o.#......o#o......#..........",
+        "choice": "D2",
+        "ms": 420,
+        "inTok": 3879,
+        "outTok": 418,
+        "result": "hit"
+       },
+       {
+        "n": 16,
+        "board": "#o......#..o....#.o......x..oo.....o.#......o#o......#..........",
+        "choice": "D1",
+        "ms": 447,
+        "inTok": 3803,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "#o......#..o....#.o.....ox..oo.....o.#......o#o......#..........",
+        "choice": "E2",
+        "ms": 409,
+        "inTok": 3743,
+        "outTok": 402,
+        "result": "hit"
+       },
+       {
+        "n": 18,
+        "board": "#o......#..o....#.o.....ox..oo...x.o.#......o#o......#..........",
+        "choice": "F2",
+        "ms": 512,
+        "inTok": 3675,
+        "outTok": 394,
+        "result": "hit"
+       },
+       {
+        "n": 19,
+        "board": "#o......#..o....#.o.....ox..oo...x.o.#...x..o#o......#..........",
+        "choice": "G2",
+        "ms": 382,
+        "inTok": 3607,
+        "outTok": 386,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 20,
+        "board": "#o......#..o....#.o.....o#..oo...#.o.#...#..o#o..#...#..........",
+        "choice": "C7",
+        "ms": 677,
+        "inTok": 3545,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "#o......#..o....#.o...o.o#..oo...#.o.#...#..o#o..#...#..........",
+        "choice": "A5",
+        "ms": 436,
+        "inTok": 3469,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "#o..o...#..o....#.o...o.o#..oo...#.o.#...#..o#o..#...#..........",
+        "choice": "H4",
+        "ms": 397,
+        "inTok": 3397,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "#o..o...#..o....#.o...o.o#..oo...#.o.#...#..o#o..#...#.....o....",
+        "choice": "B8",
+        "ms": 375,
+        "inTok": 3325,
+        "outTok": 354,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "#o..o...#..o...o#.o...o.o#..oo...#.o.#...#..o#o..#...#.....o....",
+        "choice": "H8",
+        "ms": 372,
+        "inTok": 3257,
+        "outTok": 346,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "#o..o...#..o...o#.o...o.o#..oo...#.o.#...#..o#o..#...#.....o...o",
+        "choice": "B6",
+        "ms": 418,
+        "inTok": 3193,
+        "outTok": 338,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "#o..o...#..o.o.o#.o...o.o#..oo...#.o.#...#..o#o..#...#.....o...o",
+        "choice": "H1",
+        "ms": 462,
+        "inTok": 3129,
+        "outTok": 330,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "#o..o...#..o.o.o#.o...o.o#..oo...#.o.#...#..o#o..#...#..o..o...o",
+        "choice": "E8",
+        "ms": 380,
+        "inTok": 3065,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "#o..o...#..o.o.o#.o...o.o#..oo...#.o.#.o.#..o#o..#...#..o..o...o",
+        "choice": "A7",
+        "ms": 468,
+        "inTok": 2997,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "#o..o.o.#..o.o.o#.o...o.o#..oo...#.o.#.o.#..o#o..#...#..o..o...o",
+        "choice": "C5",
+        "ms": 359,
+        "inTok": 2937,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "#o..o.o.#..o.o.o#.o.o.o.o#..oo...#.o.#.o.#..o#o..#...#..o..o...o",
+        "choice": "G4",
+        "ms": 416,
+        "inTok": 2873,
+        "outTok": 298,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": "#o..o.o.#..o.o.o#.o.o.o.o#..oo...#.o.#.o.#..o#o..#.o.#..o..o...o",
+        "choice": "F3",
+        "ms": 371,
+        "inTok": 2813,
+        "outTok": 290,
+        "result": "hit"
+       },
+       {
+        "n": 32,
+        "board": "#o..o.o.#..o.o.o#.o.o.o.o#..oo...#.o.#.o.#x.o#o..#.o.#..o..o...o",
+        "choice": "F4",
+        "ms": 496,
+        "inTok": 2741,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "#o..o.o.#..o.o.o#.o.o.o.o#..oo...#.o.#.o.#xoo#o..#.o.#..o..o...o",
+        "choice": "E3",
+        "ms": 403,
+        "inTok": 2689,
+        "outTok": 274,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "sonnet",
+      "shots": 24,
+      "cleared": true,
+      "invalid": 2,
+      "inTok": 94677,
+      "outTok": 739,
+      "costUsd": 0.295116,
+      "medianMs": 1328,
+      "totalSeconds": 40.7,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "D4",
+        "ms": 1807,
+        "inTok": 4907,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...........................o....................................",
+        "choice": "E3",
+        "ms": 1533,
+        "inTok": 4802,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 3,
+        "board": "...........................o......x.............................",
+        "choice": "E4",
+        "ms": 1420,
+        "inTok": 4697,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "...........................o......xo............................",
+        "choice": "F3",
+        "ms": 1311,
+        "inTok": 4608,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 5,
+        "board": "...........................o......#o......#.....................",
+        "choice": "B5",
+        "ms": 1232,
+        "inTok": 4524,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "............o..............o......#o......#.....................",
+        "choice": "F6",
+        "ms": 1277,
+        "inTok": 4427,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 7,
+        "board": "............o..............o......#o......#..x..................",
+        "choice": "G6",
+        "ms": 1337,
+        "inTok": 4322,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 8,
+        "board": "............o..............o......#o......#..x.......x..........",
+        "choice": "H6",
+        "ms": 1399,
+        "inTok": 4233,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "............o..............o......#o......#..x.......x.......o..",
+        "choice": "E6",
+        "ms": 1638,
+        "inTok": 4160,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 10,
+        "board": "............o..............o......#o.#....#..#.......#.......o..",
+        "choice": "C3",
+        "ms": 1328,
+        "inTok": 4094,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "............o.....o........o......#o.#....#..#.......#.......o..",
+        "choice": "D7",
+        "ms": 1193,
+        "inTok": 3996,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "............o.....o........o..o...#o.#....#..#.......#.......o..",
+        "choice": "D2",
+        "ms": 1407,
+        "inTok": 3899,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "............o.....o......x.o..o...#o.#....#..#.......#.......o..",
+        "choice": "E2",
+        "ms": 1280,
+        "inTok": 3810,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": "............o.....o......x.o..o..x#o.#....#..#.......#.......o..",
+        "choice": "",
+        "ms": 4604,
+        "inTok": 3736,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the grid, I need to find the hits that haven't been sunk yet.\n\nHits: D2, E2 (column 2, rows D and E)\n\nThese are vertical hits. I need to extend this line. \n\nC2 has: up need-to-check, down hit (D2), and one further down is also hit (E2). This is the best option - it continues a line of hit"
+       },
+       {
+        "n": 15,
+        "board": "............o.....o......x.o..o..x#o.#....#..#.......#.......o..",
+        "choice": "C2",
+        "ms": 968,
+        "inTok": 3736,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "............o....oo......x.o..o..x#o.#....#..#.......#.......o..",
+        "choice": "F2",
+        "ms": 1251,
+        "inTok": 3663,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 17,
+        "board": "............o....oo......x.o..o..x#o.#...x#..#.......#.......o..",
+        "choice": "",
+        "ms": 4644,
+        "inTok": 3589,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the grid, I can see hits at D2, E2, F2 (vertical line in column 2). The remaining ships are length 4 and length 3.\n\nG2 has neighbours: up hit, down need-to-check, and one further up is also hit. This continues the line of hits downward (or confirms the vertical ship extends). The hits at "
+       },
+       {
+        "n": 18,
+        "board": "............o....oo......x.o..o..x#o.#...x#..#.......#.......o..",
+        "choice": "G2",
+        "ms": 4119,
+        "inTok": 3589,
+        "outTok": 150,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 19,
+        "board": "............o....oo......#.o..o..##o.#...##..#...#...#.......o..",
+        "choice": "A4",
+        "ms": 1358,
+        "inTok": 3529,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "...o........o....oo......#.o..o..##o.#...##..#...#...#.......o..",
+        "choice": "C6",
+        "ms": 1114,
+        "inTok": 3440,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "...o........o....oo..o...#.o..o..##o.#...##..#...#...#.......o..",
+        "choice": "G4",
+        "ms": 1014,
+        "inTok": 3342,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "...o........o....oo..o...#.o..o..##o.#...##..#...#.o.#.......o..",
+        "choice": "B1",
+        "ms": 1176,
+        "inTok": 3267,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 23,
+        "board": "...o....x...o....oo..o...#.o..o..##o.#...##..#...#.o.#.......o..",
+        "choice": "A1",
+        "ms": 1151,
+        "inTok": 3186,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 24,
+        "board": "x..o....x...o....oo..o...#.o..o..##o.#...##..#...#.o.#.......o..",
+        "choice": "C1",
+        "ms": 1130,
+        "inTok": 3121,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       }
+      ]
+     }
+    },
+    {
+     "game": 2,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        8,
+        9,
+        10,
+        11
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        35,
+        36,
+        37
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        15,
+        23,
+        31
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        17,
+        18
+       ]
+      }
+     ],
+     "first": "sonnet",
+     "winner": "jev",
+     "jev": {
+      "captain": "jev",
+      "shots": 26,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 103696,
+      "outTok": 11180,
+      "costUsd": 0.0048247920000000005,
+      "medianMs": 377,
+      "totalSeconds": 12.5,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1460,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "E3",
+        "ms": 504,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..................................ox............................",
+        "choice": "F4",
+        "ms": 357,
+        "inTok": 4717,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................................ox.......o....................",
+        "choice": "E5",
+        "ms": 339,
+        "inTok": 4641,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................................oxx......o....................",
+        "choice": "D5",
+        "ms": 374,
+        "inTok": 4569,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "............................o.....oxx......o....................",
+        "choice": "E6",
+        "ms": 428,
+        "inTok": 4493,
+        "outTok": 490,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 7,
+        "board": "............................o.....o###.....o....................",
+        "choice": "A1",
+        "ms": 346,
+        "inTok": 4422,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "o...........................o.....o###.....o....................",
+        "choice": "B4",
+        "ms": 372,
+        "inTok": 4358,
+        "outTok": 474,
+        "result": "hit"
+       },
+       {
+        "n": 9,
+        "board": "o..........x................o.....o###.....o....................",
+        "choice": "B3",
+        "ms": 430,
+        "inTok": 4282,
+        "outTok": 466,
+        "result": "hit"
+       },
+       {
+        "n": 10,
+        "board": "o.........xx................o.....o###.....o....................",
+        "choice": "B2",
+        "ms": 463,
+        "inTok": 4210,
+        "outTok": 458,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "o........xxx................o.....o###.....o....................",
+        "choice": "B5",
+        "ms": 369,
+        "inTok": 4146,
+        "outTok": 450,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "o........xxxo...............o.....o###.....o....................",
+        "choice": "C2",
+        "ms": 371,
+        "inTok": 4082,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "o........xxxo....x..........o.....o###.....o....................",
+        "choice": "D2",
+        "ms": 420,
+        "inTok": 4010,
+        "outTok": 434,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "o........xxxo....x.......o..o.....o###.....o....................",
+        "choice": "C3",
+        "ms": 405,
+        "inTok": 3942,
+        "outTok": 426,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 15,
+        "board": "o........xxxo....##......o..o.....o###.....o....................",
+        "choice": "A2",
+        "ms": 600,
+        "inTok": 3874,
+        "outTok": 418,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "oo.......xxxo....##......o..o.....o###.....o....................",
+        "choice": "A4",
+        "ms": 370,
+        "inTok": 3818,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "oo.o.....xxxo....##......o..o.....o###.....o....................",
+        "choice": "B1",
+        "ms": 377,
+        "inTok": 3754,
+        "outTok": 402,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 18,
+        "board": "oo.o....####o....##......o..o.....o###.....o....................",
+        "choice": "C7",
+        "ms": 412,
+        "inTok": 3700,
+        "outTok": 394,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "oo.o....####o....##...o..o..o.....o###.....o....................",
+        "choice": "F7",
+        "ms": 340,
+        "inTok": 3624,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "oo.o....####o....##...o..o..o.....o###.....o..o.................",
+        "choice": "G2",
+        "ms": 372,
+        "inTok": 3548,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "oo.o....####o....##...o..o..o.....o###.....o..o..o..............",
+        "choice": "G5",
+        "ms": 363,
+        "inTok": 3476,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "oo.o....####o....##...o..o..o.....o###.....o..o..o..o...........",
+        "choice": "D8",
+        "ms": 357,
+        "inTok": 3404,
+        "outTok": 362,
+        "result": "hit"
+       },
+       {
+        "n": 23,
+        "board": "oo.o....####o....##...o..o..o..x..o###.....o..o..o..o...........",
+        "choice": "D7",
+        "ms": 343,
+        "inTok": 3332,
+        "outTok": 354,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "oo.o....####o....##...o..o..o.ox..o###.....o..o..o..o...........",
+        "choice": "E8",
+        "ms": 1274,
+        "inTok": 3272,
+        "outTok": 346,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "oo.o....####o....##...o..o..o.ox..o###.o...o..o..o..o...........",
+        "choice": "C8",
+        "ms": 619,
+        "inTok": 3208,
+        "outTok": 338,
+        "result": "hit"
+       },
+       {
+        "n": 26,
+        "board": "oo.o....####o....##...ox.o..o.ox..o###.o...o..o..o..o...........",
+        "choice": "B8",
+        "ms": 401,
+        "inTok": 3148,
+        "outTok": 330,
+        "result": "sunk",
+        "sunkLen": 3
+       }
+      ]
+     },
+     "rival": {
+      "captain": "sonnet",
+      "shots": 34,
+      "cleared": true,
+      "invalid": 2,
+      "inTok": 118815,
+      "outTok": 688,
+      "costUsd": 0.366765,
+      "medianMs": 1316,
+      "totalSeconds": 50.7,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1850,
+        "inTok": 4907,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "F4",
+        "ms": 1489,
+        "inTok": 4802,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...................................x.......o....................",
+        "choice": "D4",
+        "ms": 1214,
+        "inTok": 4705,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "...........................o.......x.......o....................",
+        "choice": "E3",
+        "ms": 1344,
+        "inTok": 4616,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "...........................o......ox.......o....................",
+        "choice": "C4",
+        "ms": 1316,
+        "inTok": 4519,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "...................o.......o......ox.......o....................",
+        "choice": "E5",
+        "ms": 1377,
+        "inTok": 4430,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 7,
+        "board": "...................o.......o......oxx......o....................",
+        "choice": "E6",
+        "ms": 1284,
+        "inTok": 4341,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 8,
+        "board": "...................o.......o......o###.....o....................",
+        "choice": "D1",
+        "ms": 1438,
+        "inTok": 4266,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "...................o....o..o......o###.....o....................",
+        "choice": "C7",
+        "ms": 1404,
+        "inTok": 4177,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "...................o..o.o..o......o###.....o....................",
+        "choice": "B5",
+        "ms": 1281,
+        "inTok": 4080,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "............o......o..o.o..o......o###.....o....................",
+        "choice": "F6",
+        "ms": 1328,
+        "inTok": 3983,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "............o......o..o.o..o......o###.....o.o..................",
+        "choice": "C2",
+        "ms": 1311,
+        "inTok": 3893,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "............o....x.o..o.o..o......o###.....o.o..................",
+        "choice": "D2",
+        "ms": 1138,
+        "inTok": 3804,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "............o....x.o..o.oo.o......o###.....o.o..................",
+        "choice": "C3",
+        "ms": 1524,
+        "inTok": 3731,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 15,
+        "board": "............o....##o..o.oo.o......o###.....o.o..................",
+        "choice": "G5",
+        "ms": 1325,
+        "inTok": 3659,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "............o....##o..o.oo.o......o###.....o.o......o...........",
+        "choice": "G2",
+        "ms": 2790,
+        "inTok": 3569,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "............o....##o..o.oo.o......o###.....o.o...o..o...........",
+        "choice": "B8",
+        "ms": 1057,
+        "inTok": 3480,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 18,
+        "board": "............o..x.##o..o.oo.o......o###.....o.o...o..o...........",
+        "choice": "C8",
+        "ms": 929,
+        "inTok": 3399,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 19,
+        "board": "............o..x.##o..oxoo.o......o###.....o.o...o..o...........",
+        "choice": "A8",
+        "ms": 1459,
+        "inTok": 3326,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": ".......o....o..x.##o..oxoo.o......o###.....o.o...o..o...........",
+        "choice": "D8",
+        "ms": 1102,
+        "inTok": 3269,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 21,
+        "board": ".......o....o..#.##o..o#oo.o...#..o###.....o.o...o..o...........",
+        "choice": "H3",
+        "ms": 1297,
+        "inTok": 3205,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": ".......o....o..#.##o..o#oo.o...#..o###.....o.o...o..o.....o.....",
+        "choice": "G7",
+        "ms": 1097,
+        "inTok": 3116,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": ".......o....o..#.##o..o#oo.o...#..o###.....o.o...o..o.o...o.....",
+        "choice": "A3",
+        "ms": 1378,
+        "inTok": 3035,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "..o....o....o..#.##o..o#oo.o...#..o###.....o.o...o..o.o...o.....",
+        "choice": "F8",
+        "ms": 1249,
+        "inTok": 2953,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "..o....o....o..#.##o..o#oo.o...#..o###.....o.o.o.o..o.o...o.....",
+        "choice": "F1",
+        "ms": 1196,
+        "inTok": 2879,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "..o....o....o..#.##o..o#oo.o...#..o###..o..o.o.o.o..o.o...o.....",
+        "choice": "H6",
+        "ms": 1258,
+        "inTok": 2798,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "..o....o....o..#.##o..o#oo.o...#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "A6",
+        "ms": 1001,
+        "inTok": 2717,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "..o..o.o....o..#.##o..o#oo.o...#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "D7",
+        "ms": 1160,
+        "inTok": 2636,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "..o..o.o....o..#.##o..o#oo.o..o#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "B2",
+        "ms": 1366,
+        "inTok": 2554,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 30,
+        "board": "..o..o.o.x..o..#.##o..o#oo.o..o#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "B1",
+        "ms": 930,
+        "inTok": 2480,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 31,
+        "board": "..o..o.oxx..o..#.##o..o#oo.o..o#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "B3",
+        "ms": 1033,
+        "inTok": 2415,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 32,
+        "board": "..o..o.oxxx.o..#.##o..o#oo.o..o#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "",
+        "ms": 4713,
+        "inTok": 2357,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "I need to find the remaining ship of length 4.\n\nLooking at the hits: B1, B2, B3 are hit. That's 3 consecutive hits in row B. The remaining ship has length 4, so this is very likely part of the length-4 ship.\n\nThe ship needs one more cell - either B4 or extending to A1 (column direction) or... wait, "
+       },
+       {
+        "n": 33,
+        "board": "..o..o.oxxx.o..#.##o..o#oo.o..o#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "",
+        "ms": 3679,
+        "inTok": 2357,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the grid, I need to find the remaining ship of length 4.\n\nThere are hits at B1, B2, B3 (three consecutive hits in row B). The remaining ship has length 4, so I need to find the 4th cell.\n\nLooking at B4: \"Neighbours: up need-to-check, down miss, left hit, right miss. One further: up edge, "
+       },
+       {
+        "n": 34,
+        "board": "..o..o.oxxx.o..#.##o..o#oo.o..o#..o###..o..o.o.o.o..o.o...o..o..",
+        "choice": "B4",
+        "ms": 1336,
+        "inTok": 2357,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 4
+       }
+      ]
+     }
+    },
+    {
+     "game": 3,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        44,
+        45,
+        46,
+        47
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        7,
+        15,
+        23
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        33,
+        34,
+        35
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        1,
+        2
+       ]
+      }
+     ],
+     "first": "jev",
+     "winner": "sonnet",
+     "jev": {
+      "captain": "jev",
+      "shots": 35,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 129111,
+      "outTok": 13790,
+      "costUsd": 0.006001842,
+      "medianMs": 390,
+      "totalSeconds": 15.8,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1403,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "E5",
+        "ms": 1160,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...................................xo...........................",
+        "choice": "F4",
+        "ms": 443,
+        "inTok": 4717,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "...................................xo......o....................",
+        "choice": "E3",
+        "ms": 367,
+        "inTok": 4641,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................................xxo......o....................",
+        "choice": "E2",
+        "ms": 401,
+        "inTok": 4569,
+        "outTok": 498,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 6,
+        "board": ".................................###o......o....................",
+        "choice": "D6",
+        "ms": 426,
+        "inTok": 4502,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": ".............................o...###o......o....................",
+        "choice": "A1",
+        "ms": 420,
+        "inTok": 4422,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "o............................o...###o......o....................",
+        "choice": "B4",
+        "ms": 388,
+        "inTok": 4358,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "o..........o.................o...###o......o....................",
+        "choice": "C7",
+        "ms": 402,
+        "inTok": 4282,
+        "outTok": 466,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "o..........o..........o......o...###o......o....................",
+        "choice": "E1",
+        "ms": 385,
+        "inTok": 4206,
+        "outTok": 458,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "o..........o..........o......o..o###o......o....................",
+        "choice": "F7",
+        "ms": 374,
+        "inTok": 4142,
+        "outTok": 450,
+        "result": "hit"
+       },
+       {
+        "n": 12,
+        "board": "o..........o..........o......o..o###o......o..x.................",
+        "choice": "F6",
+        "ms": 417,
+        "inTok": 4066,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "o..........o..........o......o..o###o......o.xx.................",
+        "choice": "F8",
+        "ms": 358,
+        "inTok": 3998,
+        "outTok": 434,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": "o..........o..........o......o..o###o......o.xxx................",
+        "choice": "F5",
+        "ms": 390,
+        "inTok": 3934,
+        "outTok": 426,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 15,
+        "board": "o..........o..........o......o..o###o......o####................",
+        "choice": "E6",
+        "ms": 422,
+        "inTok": 3872,
+        "outTok": 418,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "o..........o..........o......o..o###oo.....o####................",
+        "choice": "E7",
+        "ms": 517,
+        "inTok": 3808,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "o..........o..........o......o..o###ooo....o####................",
+        "choice": "E8",
+        "ms": 344,
+        "inTok": 3748,
+        "outTok": 402,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "o..........o..........o......o..o###oooo...o####................",
+        "choice": "A5",
+        "ms": 397,
+        "inTok": 3688,
+        "outTok": 394,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "o...o......o..........o......o..o###oooo...o####................",
+        "choice": "H3",
+        "ms": 360,
+        "inTok": 3616,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "o...o......o..........o......o..o###oooo...o####..........o.....",
+        "choice": "C3",
+        "ms": 588,
+        "inTok": 3544,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "o...o......o......o...o......o..o###oooo...o####..........o.....",
+        "choice": "B2",
+        "ms": 348,
+        "inTok": 3468,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "o...o....o.o......o...o......o..o###oooo...o####..........o.....",
+        "choice": "C5",
+        "ms": 397,
+        "inTok": 3400,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o...o....o.o......o.o.o......o..o###oooo...o####..........o.....",
+        "choice": "G2",
+        "ms": 443,
+        "inTok": 3336,
+        "outTok": 354,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "o...o....o.o......o.o.o......o..o###oooo...o####.o........o.....",
+        "choice": "B6",
+        "ms": 471,
+        "inTok": 3268,
+        "outTok": 346,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "o...o....o.o.o....o.o.o......o..o###oooo...o####.o........o.....",
+        "choice": "A8",
+        "ms": 388,
+        "inTok": 3200,
+        "outTok": 338,
+        "result": "hit"
+       },
+       {
+        "n": 26,
+        "board": "o...o..x.o.o.o....o.o.o......o..o###oooo...o####.o........o.....",
+        "choice": "B8",
+        "ms": 410,
+        "inTok": 3136,
+        "outTok": 330,
+        "result": "hit"
+       },
+       {
+        "n": 27,
+        "board": "o...o..x.o.o.o.x..o.o.o......o..o###oooo...o####.o........o.....",
+        "choice": "C8",
+        "ms": 390,
+        "inTok": 3076,
+        "outTok": 322,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 28,
+        "board": "o...o..#.o.o.o.#..o.o.o#.....o..o###oooo...o####.o........o.....",
+        "choice": "D4",
+        "ms": 373,
+        "inTok": 3021,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "o...o..#.o.o.o.#..o.o.o#...o.o..o###oooo...o####.o........o.....",
+        "choice": "G1",
+        "ms": 375,
+        "inTok": 2957,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o...o..#.o.o.o.#..o.o.o#...o.o..o###oooo...o####oo........o.....",
+        "choice": "C1",
+        "ms": 371,
+        "inTok": 2897,
+        "outTok": 298,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": "o...o..#.o.o.o.#o.o.o.o#...o.o..o###oooo...o####oo........o.....",
+        "choice": "H8",
+        "ms": 388,
+        "inTok": 2837,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o...o..#.o.o.o.#o.o.o.o#...o.o..o###oooo...o####oo........o....o",
+        "choice": "D2",
+        "ms": 365,
+        "inTok": 2777,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o...o..#.o.o.o.#o.o.o.o#.o.o.o..o###oooo...o####oo........o....o",
+        "choice": "A3",
+        "ms": 385,
+        "inTok": 2713,
+        "outTok": 274,
+        "result": "hit"
+       },
+       {
+        "n": 34,
+        "board": "o.x.o..#.o.o.o.#o.o.o.o#.o.o.o..o###oooo...o####oo........o....o",
+        "choice": "B3",
+        "ms": 372,
+        "inTok": 2653,
+        "outTok": 266,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": "o.x.o..#.ooo.o.#o.o.o.o#.o.o.o..o###oooo...o####oo........o....o",
+        "choice": "A2",
+        "ms": 404,
+        "inTok": 2593,
+        "outTok": 258,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "sonnet",
+      "shots": 30,
+      "cleared": true,
+      "invalid": 1,
+      "inTok": 109919,
+      "outTok": 461,
+      "costUsd": 0.336672,
+      "medianMs": 1273,
+      "totalSeconds": 41.8,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E6",
+        "ms": 1857,
+        "inTok": 4907,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": ".....................................o..........................",
+        "choice": "D3",
+        "ms": 1274,
+        "inTok": 4802,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..........................o..........o..........................",
+        "choice": "F5",
+        "ms": 1214,
+        "inTok": 4697,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 4,
+        "board": "..........................o..........o......x...................",
+        "choice": "F6",
+        "ms": 1177,
+        "inTok": 4592,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..........................o..........o......xx..................",
+        "choice": "F4",
+        "ms": 1227,
+        "inTok": 4503,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..........................o..........o.....oxx..................",
+        "choice": "F7",
+        "ms": 1538,
+        "inTok": 4414,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 7,
+        "board": "..........................o..........o.....oxxx.................",
+        "choice": "F8",
+        "ms": 1246,
+        "inTok": 4333,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 8,
+        "board": "..........................o..........o.....o####................",
+        "choice": "C4",
+        "ms": 2256,
+        "inTok": 4278,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "...................o......o..........o.....o####................",
+        "choice": "B5",
+        "ms": 1069,
+        "inTok": 4173,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "............o......o......o..........o.....o####................",
+        "choice": "G3",
+        "ms": 1133,
+        "inTok": 4076,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "............o......o......o..........o.....o####..o.............",
+        "choice": "C7",
+        "ms": 1307,
+        "inTok": 3979,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "............o......o..o...o..........o.....o####..o.............",
+        "choice": "E2",
+        "ms": 1127,
+        "inTok": 3882,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "............o......o..o...o......x...o.....o####..o.............",
+        "choice": "E3",
+        "ms": 2307,
+        "inTok": 3785,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": "............o......o..o...o......xx..o.....o####..o.............",
+        "choice": "E4",
+        "ms": 1347,
+        "inTok": 3704,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 15,
+        "board": "............o......o..o...o......###.o.....o####..o.............",
+        "choice": "B2",
+        "ms": 946,
+        "inTok": 3652,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": ".........o..o......o..o...o......###.o.....o####..o.............",
+        "choice": "G7",
+        "ms": 1067,
+        "inTok": 3563,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": ".........o..o......o..o...o......###.o.....o####..o...o.........",
+        "choice": "D5",
+        "ms": 1093,
+        "inTok": 3481,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": ".........o..o......o..o...o.o....###.o.....o####..o...o.........",
+        "choice": "A3",
+        "ms": 1127,
+        "inTok": 3399,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 19,
+        "board": "..x......o..o......o..o...o.o....###.o.....o####..o...o.........",
+        "choice": "",
+        "ms": 3983,
+        "inTok": 3310,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the grid, there's a hit at A3 that hasn't been sunk yet. The remaining ships are lengths 3 and 2.\n\nThe hit is at A3. I need to find its neighbors to extend the line.\n\nA3 neighbors:\n- A2: need-to-check (up from A3 is edge direction... wait, let me re-orient)\n\nRow A is the top row. Columns "
+       },
+       {
+        "n": 20,
+        "board": "..x......o..o......o..o...o.o....###.o.....o####..o...o.........",
+        "choice": "A4",
+        "ms": 1490,
+        "inTok": 3310,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "..xo.....o..o......o..o...o.o....###.o.....o####..o...o.........",
+        "choice": "B3",
+        "ms": 1324,
+        "inTok": 3237,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "..xo.....oo.o......o..o...o.o....###.o.....o####..o...o.........",
+        "choice": "A2",
+        "ms": 1381,
+        "inTok": 3172,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 23,
+        "board": ".##o.....oo.o......o..o...o.o....###.o.....o####..o...o.........",
+        "choice": "H2",
+        "ms": 1362,
+        "inTok": 3120,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": ".##o.....oo.o......o..o...o.o....###.o.....o####..o...o..o......",
+        "choice": "D8",
+        "ms": 870,
+        "inTok": 3039,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": ".##o.....oo.o......o..o...o.o..o.###.o.....o####..o...o..o......",
+        "choice": "C1",
+        "ms": 1280,
+        "inTok": 2957,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": ".##o.....oo.o...o..o..o...o.o..o.###.o.....o####..o...o..o......",
+        "choice": "F1",
+        "ms": 1332,
+        "inTok": 2868,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": ".##o.....oo.o...o..o..o...o.o..o.###.o..o..o####..o...o..o......",
+        "choice": "H4",
+        "ms": 1221,
+        "inTok": 2779,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": ".##o.....oo.o...o..o..o...o.o..o.###.o..o..o####..o...o..o.o....",
+        "choice": "A8",
+        "ms": 1131,
+        "inTok": 2706,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 29,
+        "board": ".##o...x.oo.o...o..o..o...o.o..o.###.o..o..o####..o...o..o.o....",
+        "choice": "B8",
+        "ms": 868,
+        "inTok": 2633,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 30,
+        "board": ".##o...x.oo.o..xo..o..o...o.o..o.###.o..o..o####..o...o..o.o....",
+        "choice": "C8",
+        "ms": 1273,
+        "inTok": 2568,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       }
+      ]
+     }
+    },
+    {
+     "game": 4,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        14,
+        22,
+        30,
+        38
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        27,
+        35,
+        43
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        59,
+        60,
+        61
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        56,
+        57
+       ]
+      }
+     ],
+     "first": "sonnet",
+     "winner": "sonnet",
+     "jev": {
+      "captain": "jev",
+      "shots": 40,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 140170,
+      "outTok": 14960,
+      "costUsd": 0.00651546,
+      "medianMs": 386,
+      "totalSeconds": 16.5,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1437,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "E5",
+        "ms": 387,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...................................xo...........................",
+        "choice": "F4",
+        "ms": 354,
+        "inTok": 4717,
+        "outTok": 514,
+        "result": "hit"
+       },
+       {
+        "n": 4,
+        "board": "...................................xo......x....................",
+        "choice": "D4",
+        "ms": 362,
+        "inTok": 4641,
+        "outTok": 506,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 5,
+        "board": "...........................#.......#o......#....................",
+        "choice": "C3",
+        "ms": 366,
+        "inTok": 4570,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..................o........#.......#o......#....................",
+        "choice": "C6",
+        "ms": 378,
+        "inTok": 4490,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "..................o..o.....#.......#o......#....................",
+        "choice": "A1",
+        "ms": 344,
+        "inTok": 4410,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "o.................o..o.....#.......#o......#....................",
+        "choice": "B5",
+        "ms": 360,
+        "inTok": 4346,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "o...........o.....o..o.....#.......#o......#....................",
+        "choice": "B2",
+        "ms": 505,
+        "inTok": 4270,
+        "outTok": 466,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "o........o..o.....o..o.....#.......#o......#....................",
+        "choice": "G6",
+        "ms": 395,
+        "inTok": 4198,
+        "outTok": 458,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "o........o..o.....o..o.....#.......#o......#.........o..........",
+        "choice": "D7",
+        "ms": 344,
+        "inTok": 4122,
+        "outTok": 450,
+        "result": "hit"
+       },
+       {
+        "n": 12,
+        "board": "o........o..o.....o..o.....#..x....#o......#.........o..........",
+        "choice": "D6",
+        "ms": 412,
+        "inTok": 4046,
+        "outTok": 442,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "o........o..o.....o..o.....#.ox....#o......#.........o..........",
+        "choice": "E7",
+        "ms": 409,
+        "inTok": 3978,
+        "outTok": 434,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": "o........o..o.....o..o.....#.ox....#o.x....#.........o..........",
+        "choice": "F7",
+        "ms": 386,
+        "inTok": 3910,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "o........o..o.....o..o.....#.ox....#o.x....#..o......o..........",
+        "choice": "C7",
+        "ms": 382,
+        "inTok": 3842,
+        "outTok": 418,
+        "result": "hit"
+       },
+       {
+        "n": 16,
+        "board": "o........o..o.....o..ox....#.ox....#o.x....#..o......o..........",
+        "choice": "B7",
+        "ms": 417,
+        "inTok": 3778,
+        "outTok": 410,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 17,
+        "board": "o........o..o.#...o..o#....#.o#....#o.#....#..o......o..........",
+        "choice": "G3",
+        "ms": 350,
+        "inTok": 3720,
+        "outTok": 402,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "o........o..o.#...o..o#....#.o#....#o.#....#..o...o..o..........",
+        "choice": "E1",
+        "ms": 400,
+        "inTok": 3644,
+        "outTok": 394,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "o........o..o.#...o..o#....#.o#.o..#o.#....#..o...o..o..........",
+        "choice": "H8",
+        "ms": 452,
+        "inTok": 3572,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "o........o..o.#...o..o#....#.o#.o..#o.#....#..o...o..o.........o",
+        "choice": "D2",
+        "ms": 407,
+        "inTok": 3508,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "o........o..o.#...o..o#..o.#.o#.o..#o.#....#..o...o..o.........o",
+        "choice": "A4",
+        "ms": 381,
+        "inTok": 3440,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "o..o.....o..o.#...o..o#..o.#.o#.o..#o.#....#..o...o..o.........o",
+        "choice": "F2",
+        "ms": 475,
+        "inTok": 3368,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o..o.....o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o.........o",
+        "choice": "H5",
+        "ms": 392,
+        "inTok": 3300,
+        "outTok": 354,
+        "result": "hit"
+       },
+       {
+        "n": 24,
+        "board": "o..o.....o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o......x..o",
+        "choice": "H4",
+        "ms": 341,
+        "inTok": 3228,
+        "outTok": 346,
+        "result": "hit"
+       },
+       {
+        "n": 25,
+        "board": "o..o.....o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o.....xx..o",
+        "choice": "H3",
+        "ms": 402,
+        "inTok": 3164,
+        "outTok": 338,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "o..o.....o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o....oxx..o",
+        "choice": "H6",
+        "ms": 377,
+        "inTok": 3104,
+        "outTok": 330,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 27,
+        "board": "o..o.....o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o....o###.o",
+        "choice": "A8",
+        "ms": 384,
+        "inTok": 3049,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "o..o...o.o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o....o###.o",
+        "choice": "A6",
+        "ms": 397,
+        "inTok": 2985,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "o..o.o.o.o..o.#...o..o#..o.#.o#.o..#o.#..o.#..o...o..o....o###.o",
+        "choice": "E3",
+        "ms": 409,
+        "inTok": 2925,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o..o.o.o.o..o.#...o..o#..o.#.o#.o.o#o.#..o.#..o...o..o....o###.o",
+        "choice": "C1",
+        "ms": 400,
+        "inTok": 2865,
+        "outTok": 298,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": "o..o.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#..o.#..o...o..o....o###.o",
+        "choice": "G1",
+        "ms": 353,
+        "inTok": 2805,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o..o.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#..o.#..o.o.o..o....o###.o",
+        "choice": "E8",
+        "ms": 380,
+        "inTok": 2745,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o..o.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#o.o.#..o.o.o..o....o###.o",
+        "choice": "G7",
+        "ms": 398,
+        "inTok": 2677,
+        "outTok": 274,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": "o..o.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#o.o.#..o.o.o..oo...o###.o",
+        "choice": "G4",
+        "ms": 354,
+        "inTok": 2617,
+        "outTok": 266,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": "o..o.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#o.o.#..o.o.oo.oo...o###.o",
+        "choice": "F6",
+        "ms": 369,
+        "inTok": 2561,
+        "outTok": 258,
+        "result": "miss"
+       },
+       {
+        "n": 36,
+        "board": "o..o.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#o.o.#.oo.o.oo.oo...o###.o",
+        "choice": "A3",
+        "ms": 343,
+        "inTok": 2501,
+        "outTok": 250,
+        "result": "miss"
+       },
+       {
+        "n": 37,
+        "board": "o.oo.o.o.o..o.#.o.o..o#..o.#.o#.o.o#o.#o.o.#.oo.o.oo.oo...o###.o",
+        "choice": "C5",
+        "ms": 368,
+        "inTok": 2441,
+        "outTok": 242,
+        "result": "miss"
+       },
+       {
+        "n": 38,
+        "board": "o.oo.o.o.o..o.#.o.o.oo#..o.#.o#.o.o#o.#o.o.#.oo.o.oo.oo...o###.o",
+        "choice": "B4",
+        "ms": 393,
+        "inTok": 2381,
+        "outTok": 234,
+        "result": "miss"
+       },
+       {
+        "n": 39,
+        "board": "o.oo.o.o.o.oo.#.o.o.oo#..o.#.o#.o.o#o.#o.o.#.oo.o.oo.oo...o###.o",
+        "choice": "H2",
+        "ms": 395,
+        "inTok": 2321,
+        "outTok": 226,
+        "result": "hit"
+       },
+       {
+        "n": 40,
+        "board": "o.oo.o.o.o.oo.#.o.o.oo#..o.#.o#.o.o#o.#o.o.#.oo.o.oo.oo..xo###.o",
+        "choice": "H1",
+        "ms": 367,
+        "inTok": 2265,
+        "outTok": 218,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "sonnet",
+      "shots": 33,
+      "cleared": true,
+      "invalid": 2,
+      "inTok": 118031,
+      "outTok": 679,
+      "costUsd": 0.364278,
+      "medianMs": 1253,
+      "totalSeconds": 50.3,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1883,
+        "inTok": 4907,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "D4",
+        "ms": 1373,
+        "inTok": 4802,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 3,
+        "board": "...........................x.......x............................",
+        "choice": "F4",
+        "ms": 1373,
+        "inTok": 4705,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 4,
+        "board": "...........................#.......#.......#....................",
+        "choice": "C3",
+        "ms": 1030,
+        "inTok": 4635,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "..................o........#.......#.......#....................",
+        "choice": "C6",
+        "ms": 1362,
+        "inTok": 4530,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..................o..o.....#.......#.......#....................",
+        "choice": "B2",
+        "ms": 1175,
+        "inTok": 4425,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": ".........o........o..o.....#.......#.......#....................",
+        "choice": "F7",
+        "ms": 1319,
+        "inTok": 4336,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": ".........o........o..o.....#.......#.......#..o.................",
+        "choice": "B5",
+        "ms": 1121,
+        "inTok": 4239,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": ".........o..o.....o..o.....#.......#.......#..o.................",
+        "choice": "G5",
+        "ms": 1186,
+        "inTok": 4142,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": ".........o..o.....o..o.....#.......#.......#..o.....o...........",
+        "choice": "D2",
+        "ms": 2162,
+        "inTok": 4045,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": ".........o..o.....o..o...o.#.......#.......#..o.....o...........",
+        "choice": "E6",
+        "ms": 1292,
+        "inTok": 3963,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": ".........o..o.....o..o...o.#.......#.o.....#..o.....o...........",
+        "choice": "A4",
+        "ms": 1176,
+        "inTok": 3873,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "...o.....o..o.....o..o...o.#.......#.o.....#..o.....o...........",
+        "choice": "F2",
+        "ms": 1132,
+        "inTok": 3784,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "...o.....o..o.....o..o...o.#.......#.o...o.#..o.....o...........",
+        "choice": "G3",
+        "ms": 2360,
+        "inTok": 3702,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "...o.....o..o.....o..o...o.#.......#.o...o.#..o...o.o...........",
+        "choice": "D7",
+        "ms": 1381,
+        "inTok": 3613,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 16,
+        "board": "...o.....o..o.....o..o...o.#..x....#.o...o.#..o...o.o...........",
+        "choice": "D8",
+        "ms": 1358,
+        "inTok": 3524,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "...o.....o..o.....o..o...o.#..xo...#.o...o.#..o...o.o...........",
+        "choice": "C7",
+        "ms": 1144,
+        "inTok": 3443,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 18,
+        "board": "...o.....o..o.....o..ox..o.#..xo...#.o...o.#..o...o.o...........",
+        "choice": "B7",
+        "ms": 1129,
+        "inTok": 3362,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 19,
+        "board": "...o.....o..o.x...o..ox..o.#..xo...#.o...o.#..o...o.o...........",
+        "choice": "",
+        "ms": 4760,
+        "inTok": 3297,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the hits on the board:\n- B7: hit\n- C7: hit\n- D7: hit\n- E7: hit (with up=hit, further up=hit)\n\nE7 has \"up hit\" as neighbour AND \"up hit\" one further - this is a line of hits going upward. The ship extends vertically through B7, C7, D7, E7. I need to check if there's more above (A7) or belo"
+       },
+       {
+        "n": 20,
+        "board": "...o.....o..o.x...o..ox..o.#..xo...#.o...o.#..o...o.o...........",
+        "choice": "A7",
+        "ms": 1310,
+        "inTok": 3297,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "...o..o..o..o.x...o..ox..o.#..xo...#.o...o.#..o...o.o...........",
+        "choice": "",
+        "ms": 4888,
+        "inTok": 3232,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "I need to find the best cell to fire at.\n\nFirst, let me identify the hits: B7, C7, D7 (all hits in column 7, rows B-D). These form a vertical line of 3 hits.\n\nRemaining ships: [4, 3, 2]\n\nThe vertical hits at B7, C7, D7 suggest a ship of length 3 or more. Let me check neighbors:\n- A7 is \"miss\" (above"
+       },
+       {
+        "n": 22,
+        "board": "...o..o..o..o.x...o..ox..o.#..xo...#.o...o.#..o...o.o...........",
+        "choice": "E7",
+        "ms": 1253,
+        "inTok": 3232,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 23,
+        "board": "...o..o..o..o.#...o..o#..o.#..#o...#.o#..o.#..o...o.o...........",
+        "choice": "H6",
+        "ms": 1295,
+        "inTok": 3178,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 24,
+        "board": "...o..o..o..o.#...o..o#..o.#..#o...#.o#..o.#..o...o.o........x..",
+        "choice": "H7",
+        "ms": 1144,
+        "inTok": 3089,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "...o..o..o..o.#...o..o#..o.#..#o...#.o#..o.#..o...o.o........xo.",
+        "choice": "H4",
+        "ms": 1326,
+        "inTok": 3024,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 26,
+        "board": "...o..o..o..o.#...o..o#..o.#..#o...#.o#..o.#..o...o.o......x.xo.",
+        "choice": "H5",
+        "ms": 1186,
+        "inTok": 2950,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 27,
+        "board": "...o..o..o..o.#...o..o#..o.#..#o...#.o#..o.#..o...o.o......###o.",
+        "choice": "E1",
+        "ms": 1177,
+        "inTok": 2902,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "...o..o..o..o.#...o..o#..o.#..#oo..#.o#..o.#..o...o.o......###o.",
+        "choice": "G8",
+        "ms": 1139,
+        "inTok": 2813,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "...o..o..o..o.#...o..o#..o.#..#oo..#.o#..o.#..o...o.o..o...###o.",
+        "choice": "A1",
+        "ms": 924,
+        "inTok": 2732,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o..o..o..o..o.#...o..o#..o.#..#oo..#.o#..o.#..o...o.o..o...###o.",
+        "choice": "H2",
+        "ms": 1139,
+        "inTok": 2659,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 31,
+        "board": "o..o..o..o..o.#...o..o#..o.#..#oo..#.o#..o.#..o...o.o..o.x.###o.",
+        "choice": "H3",
+        "ms": 1477,
+        "inTok": 2593,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o..o..o..o..o.#...o..o#..o.#..#oo..#.o#..o.#..o...o.o..o.xo###o.",
+        "choice": "G2",
+        "ms": 1138,
+        "inTok": 2534,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o..o..o..o..o.#...o..o#..o.#..#oo..#.o#..o.#..o..oo.o..o.xo###o.",
+        "choice": "H1",
+        "ms": 1166,
+        "inTok": 2469,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     }
+    },
+    {
+     "game": 5,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        51,
+        52,
+        53,
+        54
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        61,
+        62,
+        63
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        29,
+        30,
+        31
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        40,
+        41
+       ]
+      }
+     ],
+     "first": "jev",
+     "winner": "jev",
+     "jev": {
+      "captain": "jev",
+      "shots": 31,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 117466,
+      "outTok": 12710,
+      "costUsd": 0.005467392,
+      "medianMs": 376,
+      "totalSeconds": 13.3,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "D4",
+        "ms": 1441,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...........................o....................................",
+        "choice": "E5",
+        "ms": 358,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...........................o........o...........................",
+        "choice": "C3",
+        "ms": 441,
+        "inTok": 4713,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................o........o........o...........................",
+        "choice": "F3",
+        "ms": 357,
+        "inTok": 4633,
+        "outTok": 506,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "..................o........o........o.....o.....................",
+        "choice": "C6",
+        "ms": 356,
+        "inTok": 4553,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..................o..o.....o........o.....o.....................",
+        "choice": "B2",
+        "ms": 377,
+        "inTok": 4473,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": ".........o........o..o.....o........o.....o.....................",
+        "choice": "F6",
+        "ms": 360,
+        "inTok": 4401,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": ".........o........o..o.....o........o.....o..o..................",
+        "choice": "B5",
+        "ms": 386,
+        "inTok": 4321,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": ".........o..o.....o..o.....o........o.....o..o..................",
+        "choice": "G4",
+        "ms": 398,
+        "inTok": 4245,
+        "outTok": 466,
+        "result": "hit"
+       },
+       {
+        "n": 10,
+        "board": ".........o..o.....o..o.....o........o.....o..o.....x............",
+        "choice": "G5",
+        "ms": 369,
+        "inTok": 4169,
+        "outTok": 458,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": ".........o..o.....o..o.....o........o.....o..o.....xx...........",
+        "choice": "G3",
+        "ms": 364,
+        "inTok": 4101,
+        "outTok": 450,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": ".........o..o.....o..o.....o........o.....o..o....oxx...........",
+        "choice": "G6",
+        "ms": 390,
+        "inTok": 4037,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": ".........o..o.....o..o.....o........o.....o..o....oxxx..........",
+        "choice": "G7",
+        "ms": 376,
+        "inTok": 3973,
+        "outTok": 434,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 14,
+        "board": ".........o..o.....o..o.....o........o.....o..o....o####.........",
+        "choice": "A1",
+        "ms": 408,
+        "inTok": 3911,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "o........o..o.....o..o.....o........o.....o..o....o####.........",
+        "choice": "E2",
+        "ms": 365,
+        "inTok": 3847,
+        "outTok": 418,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "o........o..o.....o..o.....o.....o..o.....o..o....o####.........",
+        "choice": "D7",
+        "ms": 405,
+        "inTok": 3771,
+        "outTok": 410,
+        "result": "hit"
+       },
+       {
+        "n": 17,
+        "board": "o........o..o.....o..o.....o..x..o..o.....o..o....o####.........",
+        "choice": "D8",
+        "ms": 354,
+        "inTok": 3695,
+        "outTok": 402,
+        "result": "hit"
+       },
+       {
+        "n": 18,
+        "board": "o........o..o.....o..o.....o..xx.o..o.....o..o....o####.........",
+        "choice": "D6",
+        "ms": 347,
+        "inTok": 3627,
+        "outTok": 394,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 19,
+        "board": "o........o..o.....o..o.....o.###.o..o.....o..o....o####.........",
+        "choice": "A4",
+        "ms": 425,
+        "inTok": 3568,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "o..o.....o..o.....o..o.....o.###.o..o.....o..o....o####.........",
+        "choice": "B7",
+        "ms": 343,
+        "inTok": 3496,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "o..o.....o..o.o...o..o.....o.###.o..o.....o..o....o####.........",
+        "choice": "D1",
+        "ms": 732,
+        "inTok": 3432,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "o..o.....o..o.o...o..o..o..o.###.o..o.....o..o....o####.........",
+        "choice": "H1",
+        "ms": 358,
+        "inTok": 3360,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o..o.....o..o.o...o..o..o..o.###.o..o.....o..o....o####.o.......",
+        "choice": "H8",
+        "ms": 403,
+        "inTok": 3296,
+        "outTok": 354,
+        "result": "hit"
+       },
+       {
+        "n": 24,
+        "board": "o..o.....o..o.o...o..o..o..o.###.o..o.....o..o....o####.o......x",
+        "choice": "H7",
+        "ms": 456,
+        "inTok": 3232,
+        "outTok": 346,
+        "result": "hit"
+       },
+       {
+        "n": 25,
+        "board": "o..o.....o..o.o...o..o..o..o.###.o..o.....o..o....o####.o.....xx",
+        "choice": "H6",
+        "ms": 355,
+        "inTok": 3172,
+        "outTok": 338,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 26,
+        "board": "o..o.....o..o.o...o..o..o..o.###.o..o.....o..o....o####.o....###",
+        "choice": "A8",
+        "ms": 335,
+        "inTok": 3117,
+        "outTok": 330,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "o..o...o.o..o.o...o..o..o..o.###.o..o.....o..o....o####.o....###",
+        "choice": "F8",
+        "ms": 405,
+        "inTok": 3053,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "o..o...o.o..o.o...o..o..o..o.###.o..o.....o..o.o..o####.o....###",
+        "choice": "A6",
+        "ms": 485,
+        "inTok": 2993,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "o..o.o.o.o..o.o...o..o..o..o.###.o..o.....o..o.o..o####.o....###",
+        "choice": "E7",
+        "ms": 375,
+        "inTok": 2933,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o..o.o.o.o..o.o...o..o..o..o.###.o..o.o...o..o.o..o####.o....###",
+        "choice": "F1",
+        "ms": 380,
+        "inTok": 2869,
+        "outTok": 298,
+        "result": "hit"
+       },
+       {
+        "n": 31,
+        "board": "o..o.o.o.o..o.o...o..o..o..o.###.o..o.o.x.o..o.o..o####.o....###",
+        "choice": "F2",
+        "ms": 366,
+        "inTok": 2809,
+        "outTok": 290,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "sonnet",
+      "shots": 31,
+      "cleared": true,
+      "invalid": 3,
+      "inTok": 113759,
+      "outTok": 852,
+      "costUsd": 0.354057,
+      "medianMs": 1320,
+      "totalSeconds": 48.5,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "D4",
+        "ms": 1936,
+        "inTok": 4907,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...........................o....................................",
+        "choice": "E3",
+        "ms": 1339,
+        "inTok": 4802,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...........................o......o.............................",
+        "choice": "C5",
+        "ms": 1561,
+        "inTok": 4697,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "....................o......o......o.............................",
+        "choice": "E6",
+        "ms": 1216,
+        "inTok": 4592,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "....................o......o......o..o..........................",
+        "choice": "F5",
+        "ms": 1316,
+        "inTok": 4487,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "....................o......o......o..o......o...................",
+        "choice": "D2",
+        "ms": 1437,
+        "inTok": 4382,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "....................o....o.o......o..o......o...................",
+        "choice": "G4",
+        "ms": 1320,
+        "inTok": 4293,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 8,
+        "board": "....................o....o.o......o..o......o......x............",
+        "choice": "H4",
+        "ms": 1172,
+        "inTok": 4196,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "....................o....o.o......o..o......o......x.......o....",
+        "choice": "G5",
+        "ms": 1439,
+        "inTok": 4115,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 10,
+        "board": "....................o....o.o......o..o......o......xx......o....",
+        "choice": "G6",
+        "ms": 1338,
+        "inTok": 4034,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "....................o....o.o......o..o......o......xxx.....o....",
+        "choice": "G7",
+        "ms": 1302,
+        "inTok": 3961,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 12,
+        "board": "....................o....o.o......o..o......o......####....o....",
+        "choice": "B3",
+        "ms": 1233,
+        "inTok": 3904,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "..........o.........o....o.o......o..o......o......####....o....",
+        "choice": "B6",
+        "ms": 1263,
+        "inTok": 3807,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "..........o..o......o....o.o......o..o......o......####....o....",
+        "choice": "F2",
+        "ms": 1093,
+        "inTok": 3710,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 15,
+        "board": "..........o..o......o....o.o......o..o...x..o......####....o....",
+        "choice": "F1",
+        "ms": 1341,
+        "inTok": 3621,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 16,
+        "board": "..........o..o......o....o.o......o..o..##..o......####....o....",
+        "choice": "D7",
+        "ms": 1077,
+        "inTok": 3550,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 17,
+        "board": "..........o..o......o....o.o..x...o..o..##..o......####....o....",
+        "choice": "",
+        "ms": 4692,
+        "inTok": 3453,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the hit cells: D7 is \"hit\" and there are options that reference it.\n\nKey observations:\n- D7 is a \"hit\" cell\n- Options with hit neighbours: D6 (right hit), D8 (left hit), E7 (up hit), F7 (up hit - one further is hit), B7 (down hit - one further), C7 (down hit)\n\nThe instructions say: \"Best "
+       },
+       {
+        "n": 18,
+        "board": "..........o..o......o....o.o..x...o..o..##..o......####....o....",
+        "choice": "E7",
+        "ms": 1085,
+        "inTok": 3453,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "..........o..o......o....o.o..x...o..oo.##..o......####....o....",
+        "choice": "",
+        "ms": 3721,
+        "inTok": 3379,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the grid, D7 is \"hit\" and I need to find the ship containing it.\n\nKey observations:\n- D7 is a hit\n- C7 has \"down hit\" as a neighbour - so C7's down neighbour is D7 (hit)\n- D8 has \"left hit\" as a neighbour - so D8's left neighbour is D7 (hit)\n- D6 has \"right hit\" as a neighbour - so D6's r"
+       },
+       {
+        "n": 20,
+        "board": "..........o..o......o....o.o..x...o..oo.##..o......####....o....",
+        "choice": "",
+        "ms": 4117,
+        "inTok": 3379,
+        "outTok": 200,
+        "result": "invalid",
+        "raw": "Looking at the hit cell at D7, I need to find the ship containing it.\n\nD7 is a hit. Let me check options that neighbor D7:\n- C7: \"down hit\" as neighbour, and \"down miss\" one further. This means D7 is hit below C7, but E7 is miss - so the ship extends upward from D7.\n- D8: \"left hit\" as neighbour - D"
+       },
+       {
+        "n": 21,
+        "board": "..........o..o......o....o.o..x...o..oo.##..o......####....o....",
+        "choice": "D8",
+        "ms": 1335,
+        "inTok": 3379,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 22,
+        "board": "..........o..o......o....o.o..xx..o..oo.##..o......####....o....",
+        "choice": "D6",
+        "ms": 1404,
+        "inTok": 3298,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 23,
+        "board": "..........o..o......o....o.o.###..o..oo.##..o......####....o....",
+        "choice": "A4",
+        "ms": 1123,
+        "inTok": 3245,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "...o......o..o......o....o.o.###..o..oo.##..o......####....o....",
+        "choice": "C2",
+        "ms": 1075,
+        "inTok": 3156,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "...o......o..o...o..o....o.o.###..o..oo.##..o......####....o....",
+        "choice": "A1",
+        "ms": 1567,
+        "inTok": 3067,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "o..o......o..o...o..o....o.o.###..o..oo.##..o......####....o....",
+        "choice": "A7",
+        "ms": 1024,
+        "inTok": 2994,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "o..o..o...o..o...o..o....o.o.###..o..oo.##..o......####....o....",
+        "choice": "H8",
+        "ms": 1330,
+        "inTok": 2913,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 28,
+        "board": "o..o..o...o..o...o..o....o.o.###..o..oo.##..o......####....o...x",
+        "choice": "G8",
+        "ms": 1185,
+        "inTok": 2840,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "o..o..o...o..o...o..o....o.o.###..o..oo.##..o......####o...o...x",
+        "choice": "F8",
+        "ms": 1080,
+        "inTok": 2781,
+        "outTok": 9,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o..o..o...o..o...o..o....o.o.###..o..oo.##..o..o...####o...o...x",
+        "choice": "H7",
+        "ms": 1077,
+        "inTok": 2715,
+        "outTok": 9,
+        "result": "hit"
+       },
+       {
+        "n": 31,
+        "board": "o..o..o...o..o...o..o....o.o.###..o..oo.##..o..o...####o...o..xx",
+        "choice": "H6",
+        "ms": 1337,
+        "inTok": 2649,
+        "outTok": 9,
+        "result": "sunk",
+        "sunkLen": 3
+       }
+      ]
+     }
+    }
+   ],
+   "summary": {
+    "jev": {
+     "wins": 2,
+     "meanShots": 33,
+     "invalid": 0,
+     "medianMs": 388,
+     "totalSeconds": 72.8,
+     "costUsd": 0.02856,
+     "inTok": 614048,
+     "outTok": 65906
+    },
+    "rival": {
+     "wins": 3,
+     "meanShots": 30.4,
+     "invalid": 10,
+     "medianMs": 1297,
+     "totalSeconds": 232,
+     "costUsd": 1.71689,
+     "inTok": 555201,
+     "outTok": 3419
+    }
+   }
+  },
+  {
+   "rival": "minimax",
+   "games": [
+    {
+     "game": 1,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        25,
+        33,
+        41,
+        49
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        0,
+        8,
+        16
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        37,
+        45,
+        53
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        34,
+        42
+       ]
+      }
+     ],
+     "first": "jev",
+     "winner": "jev",
+     "jev": {
+      "captain": "jev",
+      "shots": 33,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 123629,
+      "outTok": 13266,
+      "costUsd": 0.00574959,
+      "medianMs": 381,
+      "totalSeconds": 14.6,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1420,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...................................o............................",
+        "choice": "D5",
+        "ms": 1233,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "............................o......o............................",
+        "choice": "C3",
+        "ms": 429,
+        "inTok": 4713,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................o.........o......o............................",
+        "choice": "F6",
+        "ms": 381,
+        "inTok": 4633,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................o.........o......o.........x..................",
+        "choice": "F5",
+        "ms": 385,
+        "inTok": 4553,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..................o.........o......o........ox..................",
+        "choice": "F7",
+        "ms": 423,
+        "inTok": 4481,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "..................o.........o......o........oxo.................",
+        "choice": "G6",
+        "ms": 409,
+        "inTok": 4413,
+        "outTok": 482,
+        "result": "hit"
+       },
+       {
+        "n": 8,
+        "board": "..................o.........o......o........oxo......x..........",
+        "choice": "H6",
+        "ms": 452,
+        "inTok": 4341,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "..................o.........o......o........oxo......x.......o..",
+        "choice": "E6",
+        "ms": 433,
+        "inTok": 4277,
+        "outTok": 466,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 10,
+        "board": "..................o.........o......o.#......o#o......#.......o..",
+        "choice": "A1",
+        "ms": 394,
+        "inTok": 4210,
+        "outTok": 458,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "x.................o.........o......o.#......o#o......#.......o..",
+        "choice": "A2",
+        "ms": 341,
+        "inTok": 4146,
+        "outTok": 450,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "xo................o.........o......o.#......o#o......#.......o..",
+        "choice": "B1",
+        "ms": 338,
+        "inTok": 4082,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "xo......x.........o.........o......o.#......o#o......#.......o..",
+        "choice": "C1",
+        "ms": 371,
+        "inTok": 4018,
+        "outTok": 434,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 14,
+        "board": "#o......#.......#.o.........o......o.#......o#o......#.......o..",
+        "choice": "B4",
+        "ms": 344,
+        "inTok": 3959,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "#o......#..o....#.o.........o......o.#......o#o......#.......o..",
+        "choice": "D2",
+        "ms": 392,
+        "inTok": 3883,
+        "outTok": 418,
+        "result": "hit"
+       },
+       {
+        "n": 16,
+        "board": "#o......#..o....#.o......x..o......o.#......o#o......#.......o..",
+        "choice": "D1",
+        "ms": 393,
+        "inTok": 3807,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "#o......#..o....#.o.....ox..o......o.#......o#o......#.......o..",
+        "choice": "E2",
+        "ms": 349,
+        "inTok": 3747,
+        "outTok": 402,
+        "result": "hit"
+       },
+       {
+        "n": 18,
+        "board": "#o......#..o....#.o.....ox..o....x.o.#......o#o......#.......o..",
+        "choice": "F2",
+        "ms": 359,
+        "inTok": 3679,
+        "outTok": 394,
+        "result": "hit"
+       },
+       {
+        "n": 19,
+        "board": "#o......#..o....#.o.....ox..o....x.o.#...x..o#o......#.......o..",
+        "choice": "G2",
+        "ms": 372,
+        "inTok": 3611,
+        "outTok": 386,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 20,
+        "board": "#o......#..o....#.o.....o#..o....#.o.#...#..o#o..#...#.......o..",
+        "choice": "C7",
+        "ms": 351,
+        "inTok": 3549,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "#o......#..o....#.o...o.o#..o....#.o.#...#..o#o..#...#.......o..",
+        "choice": "A5",
+        "ms": 357,
+        "inTok": 3473,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "#o..o...#..o....#.o...o.o#..o....#.o.#...#..o#o..#...#.......o..",
+        "choice": "D8",
+        "ms": 404,
+        "inTok": 3401,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "#o..o...#..o....#.o...o.o#..o..o.#.o.#...#..o#o..#...#.......o..",
+        "choice": "B6",
+        "ms": 351,
+        "inTok": 3329,
+        "outTok": 354,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "#o..o...#..o.o..#.o...o.o#..o..o.#.o.#...#..o#o..#...#.......o..",
+        "choice": "G4",
+        "ms": 371,
+        "inTok": 3257,
+        "outTok": 346,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "#o..o...#..o.o..#.o...o.o#..o..o.#.o.#...#..o#o..#.o.#.......o..",
+        "choice": "G8",
+        "ms": 369,
+        "inTok": 3193,
+        "outTok": 338,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "#o..o...#..o.o..#.o...o.o#..o..o.#.o.#...#..o#o..#.o.#.o.....o..",
+        "choice": "H3",
+        "ms": 476,
+        "inTok": 3129,
+        "outTok": 330,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "#o..o...#..o.o..#.o...o.o#..o..o.#.o.#...#..o#o..#.o.#.o..o..o..",
+        "choice": "A8",
+        "ms": 375,
+        "inTok": 3057,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "#o..o..o#..o.o..#.o...o.o#..o..o.#.o.#...#..o#o..#.o.#.o..o..o..",
+        "choice": "C5",
+        "ms": 383,
+        "inTok": 2993,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "#o..o..o#..o.o..#.o.o.o.o#..o..o.#.o.#...#..o#o..#.o.#.o..o..o..",
+        "choice": "H1",
+        "ms": 409,
+        "inTok": 2929,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "#o..o..o#..o.o..#.o.o.o.o#..o..o.#.o.#...#..o#o..#.o.#.oo.o..o..",
+        "choice": "F3",
+        "ms": 340,
+        "inTok": 2869,
+        "outTok": 298,
+        "result": "hit"
+       },
+       {
+        "n": 31,
+        "board": "#o..o..o#..o.o..#.o.o.o.o#..o..o.#.o.#...#x.o#o..#.o.#.oo.o..o..",
+        "choice": "F4",
+        "ms": 438,
+        "inTok": 2801,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "#o..o..o#..o.o..#.o.o.o.o#..o..o.#.o.#...#xoo#o..#.o.#.oo.o..o..",
+        "choice": "G3",
+        "ms": 372,
+        "inTok": 2745,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "#o..o..o#..o.o..#.o.o.o.o#..o..o.#.o.#...#xoo#o..#oo.#.oo.o..o..",
+        "choice": "E3",
+        "ms": 377,
+        "inTok": 2685,
+        "outTok": 274,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "minimax",
+      "shots": 37,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 107412,
+      "outTok": 266,
+      "costUsd": 0.0325428,
+      "medianMs": 925,
+      "totalSeconds": 39,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "D5",
+        "ms": 2044,
+        "inTok": 3968,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "............................o...................................",
+        "choice": "B3",
+        "ms": 3603,
+        "inTok": 3898,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..........o.................o...................................",
+        "choice": "D3",
+        "ms": 658,
+        "inTok": 3832,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..........o...............o.o...................................",
+        "choice": "C4",
+        "ms": 818,
+        "inTok": 3770,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "..........o........o......o.o...................................",
+        "choice": "E5",
+        "ms": 745,
+        "inTok": 3700,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..........o........o......o.o.......o...........................",
+        "choice": "D4",
+        "ms": 1453,
+        "inTok": 3634,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "..........o........o......ooo.......o...........................",
+        "choice": "F6",
+        "ms": 509,
+        "inTok": 3576,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 8,
+        "board": "..........o........o......ooo.......o........x..................",
+        "choice": "D6",
+        "ms": 492,
+        "inTok": 3506,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "..........o........o......oooo......o........x..................",
+        "choice": "F4",
+        "ms": 1116,
+        "inTok": 3448,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "..........o........o......oooo......o......o.x..................",
+        "choice": "E6",
+        "ms": 2066,
+        "inTok": 3386,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "..........o........o......oooo......ox.....o.x..................",
+        "choice": "G6",
+        "ms": 996,
+        "inTok": 3328,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 12,
+        "board": "..........o........o......oooo......o#.....o.#.......#..........",
+        "choice": "C3",
+        "ms": 560,
+        "inTok": 3271,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "..........o.......oo......oooo......o#.....o.#.......#..........",
+        "choice": "E2",
+        "ms": 600,
+        "inTok": 3213,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": "..........o.......oo......oooo...x..o#.....o.#.......#..........",
+        "choice": "E3",
+        "ms": 925,
+        "inTok": 3147,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 15,
+        "board": "..........o.......oo......oooo...xx.o#.....o.#.......#..........",
+        "choice": "E4",
+        "ms": 540,
+        "inTok": 3093,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "..........o.......oo......oooo...xxoo#.....o.#.......#..........",
+        "choice": "E1",
+        "ms": 514,
+        "inTok": 3051,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "..........o.......oo......oooo..oxxoo#.....o.#.......#..........",
+        "choice": "C2",
+        "ms": 502,
+        "inTok": 2997,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "..........o......ooo......oooo..oxxoo#.....o.#.......#..........",
+        "choice": "F2",
+        "ms": 582,
+        "inTok": 2943,
+        "outTok": 8,
+        "result": "hit"
+       },
+       {
+        "n": 19,
+        "board": "..........o......ooo......oooo..oxxoo#...x.o.#.......#..........",
+        "choice": "G3",
+        "ms": 1250,
+        "inTok": 2885,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "..........o......ooo......oooo..oxxoo#...x.o.#....o..#..........",
+        "choice": "G2",
+        "ms": 481,
+        "inTok": 2823,
+        "outTok": 8,
+        "result": "hit"
+       },
+       {
+        "n": 21,
+        "board": "..........o......ooo......oooo..oxxoo#...x.o.#...xo..#..........",
+        "choice": "H2",
+        "ms": 614,
+        "inTok": 2773,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "..........o......ooo......oooo..oxxoo#...x.o.#...xo..#...o......",
+        "choice": "D2",
+        "ms": 530,
+        "inTok": 2723,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 23,
+        "board": "..........o......ooo.....#oooo..o#xoo#...#.o.#...#o..#...o......",
+        "choice": "F3",
+        "ms": 826,
+        "inTok": 2679,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 24,
+        "board": "..........o......ooo.....#oooo..o##oo#...##o.#...#o..#...o......",
+        "choice": "G4",
+        "ms": 959,
+        "inTok": 2629,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "..........o......ooo.....#oooo..o##oo#...##o.#...#oo.#...o......",
+        "choice": "B5",
+        "ms": 1563,
+        "inTok": 2583,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "..........o.o....ooo.....#oooo..o##oo#...##o.#...#oo.#...o......",
+        "choice": "H4",
+        "ms": 1271,
+        "inTok": 2525,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "..........o.o....ooo.....#oooo..o##oo#...##o.#...#oo.#...o.o....",
+        "choice": "C8",
+        "ms": 524,
+        "inTok": 2475,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "..........o.o....ooo...o.#oooo..o##oo#...##o.#...#oo.#...o.o....",
+        "choice": "C7",
+        "ms": 481,
+        "inTok": 2413,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "..........o.o....ooo..oo.#oooo..o##oo#...##o.#...#oo.#...o.o....",
+        "choice": "F8",
+        "ms": 1142,
+        "inTok": 2351,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "..........o.o....ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o....",
+        "choice": "H7",
+        "ms": 1649,
+        "inTok": 2293,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": "..........o.o....ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "B8",
+        "ms": 1241,
+        "inTok": 2235,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "..........o.o..o.ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "A6",
+        "ms": 960,
+        "inTok": 2181,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": ".....o....o.o..o.ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "A3",
+        "ms": 1232,
+        "inTok": 2119,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": "..o..o....o.o..o.ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "A1",
+        "ms": 893,
+        "inTok": 2065,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 35,
+        "board": "x.o..o....o.o..o.ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "B1",
+        "ms": 1004,
+        "inTok": 2015,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 36,
+        "board": "x.o..o..x.o.o..o.ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "A2",
+        "ms": 2254,
+        "inTok": 1965,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 37,
+        "board": "xoo..o..x.o.o..o.ooo..oo.#oooo..o##oo#...##o.#.o.#oo.#...o.o..o.",
+        "choice": "C1",
+        "ms": 1432,
+        "inTok": 1919,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       }
+      ]
+     }
+    },
+    {
+     "game": 2,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        8,
+        9,
+        10,
+        11
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        35,
+        36,
+        37
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        15,
+        23,
+        31
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        17,
+        18
+       ]
+      }
+     ],
+     "first": "minimax",
+     "winner": "jev",
+     "jev": {
+      "captain": "jev",
+      "shots": 37,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 133877,
+      "outTok": 14282,
+      "costUsd": 0.006222678000000001,
+      "medianMs": 383,
+      "totalSeconds": 16.2,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1369,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "E3",
+        "ms": 445,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..................................ox............................",
+        "choice": "F4",
+        "ms": 387,
+        "inTok": 4717,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................................ox.......o....................",
+        "choice": "E5",
+        "ms": 406,
+        "inTok": 4641,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................................oxx......o....................",
+        "choice": "D5",
+        "ms": 422,
+        "inTok": 4569,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "............................o.....oxx......o....................",
+        "choice": "E6",
+        "ms": 417,
+        "inTok": 4493,
+        "outTok": 490,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 7,
+        "board": "............................o.....o###.....o....................",
+        "choice": "A1",
+        "ms": 383,
+        "inTok": 4422,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "o...........................o.....o###.....o....................",
+        "choice": "D2",
+        "ms": 395,
+        "inTok": 4358,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "o........................o..o.....o###.....o....................",
+        "choice": "E7",
+        "ms": 398,
+        "inTok": 4282,
+        "outTok": 466,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "o........................o..o.....o###o....o....................",
+        "choice": "B4",
+        "ms": 416,
+        "inTok": 4214,
+        "outTok": 458,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "o..........x.............o..o.....o###o....o....................",
+        "choice": "B3",
+        "ms": 349,
+        "inTok": 4138,
+        "outTok": 450,
+        "result": "hit"
+       },
+       {
+        "n": 12,
+        "board": "o.........xx.............o..o.....o###o....o....................",
+        "choice": "B2",
+        "ms": 360,
+        "inTok": 4066,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "o........xxx.............o..o.....o###o....o....................",
+        "choice": "B5",
+        "ms": 352,
+        "inTok": 4006,
+        "outTok": 434,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "o........xxxo............o..o.....o###o....o....................",
+        "choice": "B1",
+        "ms": 440,
+        "inTok": 3942,
+        "outTok": 426,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 15,
+        "board": "o.......####o............o..o.....o###o....o....................",
+        "choice": "C8",
+        "ms": 348,
+        "inTok": 3888,
+        "outTok": 418,
+        "result": "hit"
+       },
+       {
+        "n": 16,
+        "board": "o.......####o..........x.o..o.....o###o....o....................",
+        "choice": "C7",
+        "ms": 432,
+        "inTok": 3816,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "o.......####o.........ox.o..o.....o###o....o....................",
+        "choice": "D8",
+        "ms": 382,
+        "inTok": 3748,
+        "outTok": 402,
+        "result": "hit"
+       },
+       {
+        "n": 18,
+        "board": "o.......####o.........ox.o..o..x..o###o....o....................",
+        "choice": "B8",
+        "ms": 368,
+        "inTok": 3680,
+        "outTok": 394,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 19,
+        "board": "o.......####o..#......o#.o..o..#..o###o....o....................",
+        "choice": "G2",
+        "ms": 375,
+        "inTok": 3621,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "o.......####o..#......o#.o..o..#..o###o....o.....o..............",
+        "choice": "F1",
+        "ms": 361,
+        "inTok": 3549,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "o.......####o..#......o#.o..o..#..o###o.o..o.....o..............",
+        "choice": "A6",
+        "ms": 348,
+        "inTok": 3477,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "o....o..####o..#......o#.o..o..#..o###o.o..o.....o..............",
+        "choice": "G5",
+        "ms": 354,
+        "inTok": 3405,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o....o..####o..#......o#.o..o..#..o###o.o..o.....o..o...........",
+        "choice": "H6",
+        "ms": 376,
+        "inTok": 3333,
+        "outTok": 354,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "o....o..####o..#......o#.o..o..#..o###o.o..o.....o..o........o..",
+        "choice": "G7",
+        "ms": 392,
+        "inTok": 3261,
+        "outTok": 346,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "o....o..####o..#......o#.o..o..#..o###o.o..o.....o..o.o......o..",
+        "choice": "H3",
+        "ms": 359,
+        "inTok": 3197,
+        "outTok": 338,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "o....o..####o..#......o#.o..o..#..o###o.o..o.....o..o.o...o..o..",
+        "choice": "F8",
+        "ms": 362,
+        "inTok": 3125,
+        "outTok": 330,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "o....o..####o..#......o#.o..o..#..o###o.o..o...o.o..o.o...o..o..",
+        "choice": "C4",
+        "ms": 1361,
+        "inTok": 3057,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "o....o..####o..#...o..o#.o..o..#..o###o.o..o...o.o..o.o...o..o..",
+        "choice": "F6",
+        "ms": 411,
+        "inTok": 2985,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "o....o..####o..#...o..o#.o..o..#..o###o.o..o.o.o.o..o.o...o..o..",
+        "choice": "H1",
+        "ms": 430,
+        "inTok": 2921,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o....o..####o..#...o..o#.o..o..#..o###o.o..o.o.o.o..o.o.o.o..o..",
+        "choice": "H8",
+        "ms": 397,
+        "inTok": 2865,
+        "outTok": 298,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": "o....o..####o..#...o..o#.o..o..#..o###o.o..o.o.o.o..o.o.o.o..o.o",
+        "choice": "B6",
+        "ms": 374,
+        "inTok": 2809,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o....o..####oo.#...o..o#.o..o..#..o###o.o..o.o.o.o..o.o.o.o..o.o",
+        "choice": "D1",
+        "ms": 386,
+        "inTok": 2749,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o....o..####oo.#...o..o#oo..o..#..o###o.o..o.o.o.o..o.o.o.o..o.o",
+        "choice": "E8",
+        "ms": 362,
+        "inTok": 2689,
+        "outTok": 274,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": "o....o..####oo.#...o..o#oo..o..#..o###ooo..o.o.o.o..o.o.o.o..o.o",
+        "choice": "A4",
+        "ms": 395,
+        "inTok": 2637,
+        "outTok": 266,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": "o..o.o..####oo.#...o..o#oo..o..#..o###ooo..o.o.o.o..o.o.o.o..o.o",
+        "choice": "B7",
+        "ms": 354,
+        "inTok": 2577,
+        "outTok": 258,
+        "result": "miss"
+       },
+       {
+        "n": 36,
+        "board": "o..o.o..####ooo#...o..o#oo..o..#..o###ooo..o.o.o.o..o.o.o.o..o.o",
+        "choice": "C3",
+        "ms": 380,
+        "inTok": 2521,
+        "outTok": 250,
+        "result": "hit"
+       },
+       {
+        "n": 37,
+        "board": "o..o.o..####ooo#..xo..o#oo..o..#..o###ooo..o.o.o.o..o.o.o.o..o.o",
+        "choice": "C2",
+        "ms": 328,
+        "inTok": 2453,
+        "outTok": 242,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "minimax",
+      "shots": 39,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 111049,
+      "outTok": 277,
+      "costUsd": 0.0336471,
+      "medianMs": 1137,
+      "totalSeconds": 51.6,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "D4",
+        "ms": 1991,
+        "inTok": 3968,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...........................o....................................",
+        "choice": "D3",
+        "ms": 1096,
+        "inTok": 3898,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..........................oo....................................",
+        "choice": "F6",
+        "ms": 1531,
+        "inTok": 3832,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..........................oo.................o..................",
+        "choice": "E5",
+        "ms": 534,
+        "inTok": 3762,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..........................oo........x........o..................",
+        "choice": "E6",
+        "ms": 1627,
+        "inTok": 3692,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 6,
+        "board": "..........................oo........xx.......o..................",
+        "choice": "G6",
+        "ms": 1465,
+        "inTok": 3630,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "..........................oo........xx.......o.......o..........",
+        "choice": "D6",
+        "ms": 656,
+        "inTok": 3572,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "..........................oo.o......xx.......o.......o..........",
+        "choice": "D5",
+        "ms": 1651,
+        "inTok": 3514,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "..........................oooo......xx.......o.......o..........",
+        "choice": "C6",
+        "ms": 887,
+        "inTok": 3460,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": ".....................o....oooo......xx.......o.......o..........",
+        "choice": "C5",
+        "ms": 1010,
+        "inTok": 3398,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "....................oo....oooo......xx.......o.......o..........",
+        "choice": "E7",
+        "ms": 509,
+        "inTok": 3340,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "....................oo....oooo......xxo......o.......o..........",
+        "choice": "G5",
+        "ms": 968,
+        "inTok": 3282,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "....................oo....oooo......xxo......o......oo..........",
+        "choice": "E3",
+        "ms": 4266,
+        "inTok": 3224,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "....................oo....oooo....o.xxo......o......oo..........",
+        "choice": "C4",
+        "ms": 1651,
+        "inTok": 3162,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "...................ooo....oooo....o.xxo......o......oo..........",
+        "choice": "E4",
+        "ms": 1137,
+        "inTok": 3104,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 16,
+        "board": "...................ooo....oooo....o###o......o......oo..........",
+        "choice": "G4",
+        "ms": 852,
+        "inTok": 3055,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "...................ooo....oooo....o###o......o.....ooo..........",
+        "choice": "H1",
+        "ms": 1063,
+        "inTok": 3001,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "...................ooo....oooo....o###o......o.....ooo..o.......",
+        "choice": "F2",
+        "ms": 1362,
+        "inTok": 2947,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "...................ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "B2",
+        "ms": 663,
+        "inTok": 2881,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 20,
+        "board": ".........x.........ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "A2",
+        "ms": 925,
+        "inTok": 2819,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": ".o.......x.........ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "B3",
+        "ms": 1249,
+        "inTok": 2765,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 22,
+        "board": ".o.......xx........ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "B4",
+        "ms": 631,
+        "inTok": 2707,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 23,
+        "board": ".o.......xxx.......ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "B1",
+        "ms": 934,
+        "inTok": 2657,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 24,
+        "board": ".o......####.......ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "B7",
+        "ms": 2334,
+        "inTok": 2609,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": ".o......####..o....ooo....oooo....o###o..o...o.....ooo..o.......",
+        "choice": "H8",
+        "ms": 1251,
+        "inTok": 2547,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": ".o......####..o....ooo....oooo....o###o..o...o.....ooo..o......o",
+        "choice": "D1",
+        "ms": 492,
+        "inTok": 2493,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": ".o......####..o....ooo..o.oooo....o###o..o...o.....ooo..o......o",
+        "choice": "D2",
+        "ms": 828,
+        "inTok": 2439,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": ".o......####..o....ooo..oooooo....o###o..o...o.....ooo..o......o",
+        "choice": "F3",
+        "ms": 617,
+        "inTok": 2393,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": ".o......####..o....ooo..oooooo....o###o..oo..o.....ooo..o......o",
+        "choice": "B5",
+        "ms": 1568,
+        "inTok": 2335,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": ".o......####o.o....ooo..oooooo....o###o..oo..o.....ooo..o......o",
+        "choice": "H5",
+        "ms": 631,
+        "inTok": 2289,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": ".o......####o.o....ooo..oooooo....o###o..oo..o.....ooo..o...o..o",
+        "choice": "C8",
+        "ms": 1266,
+        "inTok": 2231,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 32,
+        "board": ".o......####o.o....ooo.xoooooo....o###o..oo..o.....ooo..o...o..o",
+        "choice": "C7",
+        "ms": 1228,
+        "inTok": 2173,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": ".o......####o.o....ooooxoooooo....o###o..oo..o.....ooo..o...o..o",
+        "choice": "B8",
+        "ms": 1755,
+        "inTok": 2127,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 34,
+        "board": ".o......####o.ox...ooooxoooooo....o###o..oo..o.....ooo..o...o..o",
+        "choice": "A8",
+        "ms": 1317,
+        "inTok": 2077,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": ".o.....o####o.ox...ooooxoooooo....o###o..oo..o.....ooo..o...o..o",
+        "choice": "C2",
+        "ms": 4425,
+        "inTok": 2031,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 36,
+        "board": ".o.....o####o.ox.x.ooooxoooooo....o###o..oo..o.....ooo..o...o..o",
+        "choice": "D8",
+        "ms": 971,
+        "inTok": 1981,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 37,
+        "board": ".o.....o####o.o#.x.oooo#oooooo.#..o###o..oo..o.....ooo..o...o..o",
+        "choice": "E2",
+        "ms": 1052,
+        "inTok": 1932,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 38,
+        "board": ".o.....o####o.o#.x.oooo#oooooo.#.oo###o..oo..o.....ooo..o...o..o",
+        "choice": "C1",
+        "ms": 1972,
+        "inTok": 1886,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 39,
+        "board": ".o.....o####o.o#ox.oooo#oooooo.#.oo###o..oo..o.....ooo..o...o..o",
+        "choice": "C3",
+        "ms": 1200,
+        "inTok": 1836,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     }
+    },
+    {
+     "game": 3,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        44,
+        45,
+        46,
+        47
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        7,
+        15,
+        23
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        33,
+        34,
+        35
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        1,
+        2
+       ]
+      }
+     ],
+     "first": "jev",
+     "winner": "minimax",
+     "jev": {
+      "captain": "jev",
+      "shots": 42,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 145247,
+      "outTok": 15372,
+      "costUsd": 0.0067459980000000004,
+      "medianMs": 384,
+      "totalSeconds": 17.8,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1689,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "E5",
+        "ms": 420,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...................................xo...........................",
+        "choice": "F4",
+        "ms": 384,
+        "inTok": 4717,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "...................................xo......o....................",
+        "choice": "E3",
+        "ms": 365,
+        "inTok": 4641,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................................xxo......o....................",
+        "choice": "E2",
+        "ms": 454,
+        "inTok": 4569,
+        "outTok": 498,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 6,
+        "board": ".................................###o......o....................",
+        "choice": "C6",
+        "ms": 423,
+        "inTok": 4502,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": ".....................o...........###o......o....................",
+        "choice": "B2",
+        "ms": 353,
+        "inTok": 4422,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": ".........o...........o...........###o......o....................",
+        "choice": "E1",
+        "ms": 408,
+        "inTok": 4350,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": ".........o...........o..........o###o......o....................",
+        "choice": "E6",
+        "ms": 381,
+        "inTok": 4286,
+        "outTok": 466,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": ".........o...........o..........o###oo.....o....................",
+        "choice": "E7",
+        "ms": 342,
+        "inTok": 4218,
+        "outTok": 458,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": ".........o...........o..........o###ooo....o....................",
+        "choice": "E8",
+        "ms": 355,
+        "inTok": 4150,
+        "outTok": 450,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": ".........o...........o..........o###oooo...o....................",
+        "choice": "A1",
+        "ms": 397,
+        "inTok": 4086,
+        "outTok": 442,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "o........o...........o..........o###oooo...o....................",
+        "choice": "B5",
+        "ms": 339,
+        "inTok": 4022,
+        "outTok": 434,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "o........o..o........o..........o###oooo...o....................",
+        "choice": "F2",
+        "ms": 348,
+        "inTok": 3946,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "o........o..o........o..........o###oooo.o.o....................",
+        "choice": "A4",
+        "ms": 371,
+        "inTok": 3878,
+        "outTok": 418,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "o..o.....o..o........o..........o###oooo.o.o....................",
+        "choice": "A7",
+        "ms": 440,
+        "inTok": 3806,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "o..o..o..o..o........o..........o###oooo.o.o....................",
+        "choice": "D4",
+        "ms": 361,
+        "inTok": 3738,
+        "outTok": 402,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "o..o..o..o..o........o.....o....o###oooo.o.o....................",
+        "choice": "C3",
+        "ms": 354,
+        "inTok": 3666,
+        "outTok": 394,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "o..o..o..o..o.....o..o.....o....o###oooo.o.o....................",
+        "choice": "G5",
+        "ms": 363,
+        "inTok": 3590,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "o..o..o..o..o.....o..o.....o....o###oooo.o.o........o...........",
+        "choice": "H6",
+        "ms": 388,
+        "inTok": 3518,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "o..o..o..o..o.....o..o.....o....o###oooo.o.o........o........o..",
+        "choice": "G7",
+        "ms": 414,
+        "inTok": 3446,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "o..o..o..o..o.....o..o.....o....o###oooo.o.o........o.o......o..",
+        "choice": "G3",
+        "ms": 439,
+        "inTok": 3382,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o..o..o..o..o.....o..o.....o....o###oooo.o.o......o.o.o......o..",
+        "choice": "B8",
+        "ms": 349,
+        "inTok": 3314,
+        "outTok": 354,
+        "result": "hit"
+       },
+       {
+        "n": 24,
+        "board": "o..o..o..o..o..x..o..o.....o....o###oooo.o.o......o.o.o......o..",
+        "choice": "C8",
+        "ms": 480,
+        "inTok": 3246,
+        "outTok": 346,
+        "result": "hit"
+       },
+       {
+        "n": 25,
+        "board": "o..o..o..o..o..x..o..o.x...o....o###oooo.o.o......o.o.o......o..",
+        "choice": "D8",
+        "ms": 370,
+        "inTok": 3186,
+        "outTok": 338,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "o..o..o..o..o..x..o..o.x...o...oo###oooo.o.o......o.o.o......o..",
+        "choice": "A8",
+        "ms": 442,
+        "inTok": 3126,
+        "outTok": 330,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 27,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.o......o.o.o......o..",
+        "choice": "F5",
+        "ms": 446,
+        "inTok": 3075,
+        "outTok": 322,
+        "result": "hit"
+       },
+       {
+        "n": 28,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.ox.....o.o.o......o..",
+        "choice": "F6",
+        "ms": 357,
+        "inTok": 3007,
+        "outTok": 314,
+        "result": "hit"
+       },
+       {
+        "n": 29,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.oxx....o.o.o......o..",
+        "choice": "F7",
+        "ms": 404,
+        "inTok": 2943,
+        "outTok": 306,
+        "result": "hit"
+       },
+       {
+        "n": 30,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.oxxx...o.o.o......o..",
+        "choice": "F8",
+        "ms": 372,
+        "inTok": 2883,
+        "outTok": 298,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 31,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.o####..o.o.o......o..",
+        "choice": "H1",
+        "ms": 465,
+        "inTok": 2829,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.o####..o.o.o.o....o..",
+        "choice": "H4",
+        "ms": 407,
+        "inTok": 2765,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o..o..o#.o..o..#..o..o.#...o...oo###oooo.o.o####..o.o.o.o..o.o..",
+        "choice": "C1",
+        "ms": 342,
+        "inTok": 2701,
+        "outTok": 274,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": "o..o..o#.o..o..#o.o..o.#...o...oo###oooo.o.o####..o.o.o.o..o.o..",
+        "choice": "D1",
+        "ms": 410,
+        "inTok": 2641,
+        "outTok": 266,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": "o..o..o#.o..o..#o.o..o.#o..o...oo###oooo.o.o####..o.o.o.o..o.o..",
+        "choice": "C5",
+        "ms": 359,
+        "inTok": 2577,
+        "outTok": 258,
+        "result": "miss"
+       },
+       {
+        "n": 36,
+        "board": "o..o..o#.o..o..#o.o.oo.#o..o...oo###oooo.o.o####..o.o.o.o..o.o..",
+        "choice": "G2",
+        "ms": 343,
+        "inTok": 2513,
+        "outTok": 250,
+        "result": "miss"
+       },
+       {
+        "n": 37,
+        "board": "o..o..o#.o..o..#o.o.oo.#o..o...oo###oooo.o.o####.oo.o.o.o..o.o..",
+        "choice": "H8",
+        "ms": 353,
+        "inTok": 2453,
+        "outTok": 242,
+        "result": "miss"
+       },
+       {
+        "n": 38,
+        "board": "o..o..o#.o..o..#o.o.oo.#o..o...oo###oooo.o.o####.oo.o.o.o..o.o.o",
+        "choice": "D6",
+        "ms": 465,
+        "inTok": 2397,
+        "outTok": 234,
+        "result": "miss"
+       },
+       {
+        "n": 39,
+        "board": "o..o..o#.o..o..#o.o.oo.#o..o.o.oo###oooo.o.o####.oo.o.o.o..o.o.o",
+        "choice": "C7",
+        "ms": 362,
+        "inTok": 2337,
+        "outTok": 226,
+        "result": "miss"
+       },
+       {
+        "n": 40,
+        "board": "o..o..o#.o..o..#o.o.ooo#o..o.o.oo###oooo.o.o####.oo.o.o.o..o.o.o",
+        "choice": "D3",
+        "ms": 409,
+        "inTok": 2281,
+        "outTok": 218,
+        "result": "miss"
+       },
+       {
+        "n": 41,
+        "board": "o..o..o#.o..o..#o.o.ooo#o.oo.o.oo###oooo.o.o####.oo.o.o.o..o.o.o",
+        "choice": "A3",
+        "ms": 365,
+        "inTok": 2217,
+        "outTok": 210,
+        "result": "hit"
+       },
+       {
+        "n": 42,
+        "board": "o.xo..o#.o..o..#o.o.ooo#o.oo.o.oo###oooo.o.o####.oo.o.o.o..o.o.o",
+        "choice": "A2",
+        "ms": 475,
+        "inTok": 2157,
+        "outTok": 202,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "minimax",
+      "shots": 38,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 108762,
+      "outTok": 271,
+      "costUsd": 0.0329538,
+      "medianMs": 1181,
+      "totalSeconds": 51.4,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E6",
+        "ms": 2903,
+        "inTok": 3968,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": ".....................................o..........................",
+        "choice": "D5",
+        "ms": 553,
+        "inTok": 3898,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "............................o........o..........................",
+        "choice": "E3",
+        "ms": 1389,
+        "inTok": 3828,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 4,
+        "board": "............................o.....x..o..........................",
+        "choice": "E4",
+        "ms": 2139,
+        "inTok": 3758,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "............................o.....xx.o..........................",
+        "choice": "D4",
+        "ms": 775,
+        "inTok": 3696,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "...........................oo.....xx.o..........................",
+        "choice": "E1",
+        "ms": 1011,
+        "inTok": 3634,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "...........................oo...o.xx.o..........................",
+        "choice": "C3",
+        "ms": 1907,
+        "inTok": 3576,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "..................o........oo...o.xx.o..........................",
+        "choice": "G4",
+        "ms": 2456,
+        "inTok": 3510,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "..................o........oo...o.xx.o.............o............",
+        "choice": "E5",
+        "ms": 1221,
+        "inTok": 3448,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": "..................o........oo...o.xxoo.............o............",
+        "choice": "E2",
+        "ms": 1823,
+        "inTok": 3394,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 11,
+        "board": "..................o........oo...o###oo.............o............",
+        "choice": "C6",
+        "ms": 970,
+        "inTok": 3341,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "..................o..o.....oo...o###oo.............o............",
+        "choice": "D7",
+        "ms": 1146,
+        "inTok": 3275,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": "..................o..o.....oo.o.o###oo.............o............",
+        "choice": "H6",
+        "ms": 1822,
+        "inTok": 3213,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "..................o..o.....oo.o.o###oo.............o.........o..",
+        "choice": "A5",
+        "ms": 2400,
+        "inTok": 3151,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "....o.............o..o.....oo.o.o###oo.............o.........o..",
+        "choice": "D6",
+        "ms": 1870,
+        "inTok": 3089,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "....o.............o..o.....oooo.o###oo.............o.........o..",
+        "choice": "B2",
+        "ms": 1397,
+        "inTok": 3039,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "....o....o........o..o.....oooo.o###oo.............o.........o..",
+        "choice": "B5",
+        "ms": 628,
+        "inTok": 2977,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "....o....o..o.....o..o.....oooo.o###oo.............o.........o..",
+        "choice": "F1",
+        "ms": 3249,
+        "inTok": 2919,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "....o....o..o.....o..o.....oooo.o###oo..o..........o.........o..",
+        "choice": "F6",
+        "ms": 535,
+        "inTok": 2861,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 20,
+        "board": "....o....o..o.....o..o.....oooo.o###oo..o....x.....o.........o..",
+        "choice": "F5",
+        "ms": 675,
+        "inTok": 2803,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 21,
+        "board": "....o....o..o.....o..o.....oooo.o###oo..o...xx.....o.........o..",
+        "choice": "F8",
+        "ms": 633,
+        "inTok": 2745,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 22,
+        "board": "....o....o..o.....o..o.....oooo.o###oo..o...xx.x...o.........o..",
+        "choice": "F7",
+        "ms": 1516,
+        "inTok": 2687,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 23,
+        "board": "....o....o..o.....o..o.....oooo.o###oo..o...####...o.........o..",
+        "choice": "B7",
+        "ms": 2128,
+        "inTok": 2639,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "....o....o..o.o...o..o.....oooo.o###oo..o...####...o.........o..",
+        "choice": "F4",
+        "ms": 521,
+        "inTok": 2585,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "....o....o..o.o...o..o.....oooo.o###oo..o..o####...o.........o..",
+        "choice": "C5",
+        "ms": 1516,
+        "inTok": 2535,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "....o....o..o.o...o.oo.....oooo.o###oo..o..o####...o.........o..",
+        "choice": "G5",
+        "ms": 2017,
+        "inTok": 2489,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "....o....o..o.o...o.oo.....oooo.o###oo..o..o####...oo........o..",
+        "choice": "G2",
+        "ms": 612,
+        "inTok": 2435,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "....o....o..o.o...o.oo.....oooo.o###oo..o..o####.o.oo........o..",
+        "choice": "A8",
+        "ms": 1180,
+        "inTok": 2381,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 29,
+        "board": "....o..x.o..o.o...o.oo.....oooo.o###oo..o..o####.o.oo........o..",
+        "choice": "B8",
+        "ms": 814,
+        "inTok": 2327,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 30,
+        "board": "....o..x.o..o.ox..o.oo.....oooo.o###oo..o..o####.o.oo........o..",
+        "choice": "C8",
+        "ms": 753,
+        "inTok": 2277,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 31,
+        "board": "....o..#.o..o.o#..o.oo.#...oooo.o###oo..o..o####.o.oo........o..",
+        "choice": "H3",
+        "ms": 771,
+        "inTok": 2228,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "....o..#.o..o.o#..o.oo.#...oooo.o###oo..o..o####.o.oo.....o..o..",
+        "choice": "G8",
+        "ms": 513,
+        "inTok": 2166,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "....o..#.o..o.o#..o.oo.#...oooo.o###oo..o..o####.o.oo..o..o..o..",
+        "choice": "A1",
+        "ms": 2263,
+        "inTok": 2112,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": "o...o..#.o..o.o#..o.oo.#...oooo.o###oo..o..o####.o.oo..o..o..o..",
+        "choice": "B4",
+        "ms": 2035,
+        "inTok": 2058,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": "o...o..#.o.oo.o#..o.oo.#...oooo.o###oo..o..o####.o.oo..o..o..o..",
+        "choice": "A3",
+        "ms": 1181,
+        "inTok": 2004,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 36,
+        "board": "o.x.o..#.o.oo.o#..o.oo.#...oooo.o###oo..o..o####.o.oo..o..o..o..",
+        "choice": "A4",
+        "ms": 487,
+        "inTok": 1954,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 37,
+        "board": "o.xoo..#.o.oo.o#..o.oo.#...oooo.o###oo..o..o####.o.oo..o..o..o..",
+        "choice": "B3",
+        "ms": 569,
+        "inTok": 1904,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 38,
+        "board": "o.xoo..#.oooo.o#..o.oo.#...oooo.o###oo..o..o####.o.oo..o..o..o..",
+        "choice": "A2",
+        "ms": 1039,
+        "inTok": 1858,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     }
+    },
+    {
+     "game": 4,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        14,
+        22,
+        30,
+        38
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        27,
+        35,
+        43
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        59,
+        60,
+        61
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        56,
+        57
+       ]
+      }
+     ],
+     "first": "minimax",
+     "winner": "jev",
+     "jev": {
+      "captain": "jev",
+      "shots": 34,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 125974,
+      "outTok": 13532,
+      "costUsd": 0.0058592520000000006,
+      "medianMs": 393,
+      "totalSeconds": 15.6,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1711,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "E3",
+        "ms": 495,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..................................ox............................",
+        "choice": "E5",
+        "ms": 395,
+        "inTok": 4717,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................................oxo...........................",
+        "choice": "F4",
+        "ms": 1162,
+        "inTok": 4645,
+        "outTok": 506,
+        "result": "hit"
+       },
+       {
+        "n": 5,
+        "board": "..................................oxo......x....................",
+        "choice": "D4",
+        "ms": 389,
+        "inTok": 4569,
+        "outTok": 498,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 6,
+        "board": "...........................#......o#o......#....................",
+        "choice": "C6",
+        "ms": 425,
+        "inTok": 4498,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": ".....................o.....#......o#o......#....................",
+        "choice": "A1",
+        "ms": 386,
+        "inTok": 4418,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "o....................o.....#......o#o......#....................",
+        "choice": "B5",
+        "ms": 366,
+        "inTok": 4354,
+        "outTok": 474,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": "o...........o........o.....#......o#o......#....................",
+        "choice": "D7",
+        "ms": 376,
+        "inTok": 4278,
+        "outTok": 466,
+        "result": "hit"
+       },
+       {
+        "n": 10,
+        "board": "o...........o........o.....#..x...o#o......#....................",
+        "choice": "E7",
+        "ms": 408,
+        "inTok": 4202,
+        "outTok": 458,
+        "result": "hit"
+       },
+       {
+        "n": 11,
+        "board": "o...........o........o.....#..x...o#o.x....#....................",
+        "choice": "F7",
+        "ms": 389,
+        "inTok": 4134,
+        "outTok": 450,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "o...........o........o.....#..x...o#o.x....#..o.................",
+        "choice": "C7",
+        "ms": 366,
+        "inTok": 4066,
+        "outTok": 442,
+        "result": "hit"
+       },
+       {
+        "n": 13,
+        "board": "o...........o........ox....#..x...o#o.x....#..o.................",
+        "choice": "B7",
+        "ms": 418,
+        "inTok": 4002,
+        "outTok": 434,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 14,
+        "board": "o...........o.#......o#....#..#...o#o.#....#..o.................",
+        "choice": "B2",
+        "ms": 358,
+        "inTok": 3944,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "o........o..o.#......o#....#..#...o#o.#....#..o.................",
+        "choice": "G6",
+        "ms": 358,
+        "inTok": 3872,
+        "outTok": 418,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "o........o..o.#......o#....#..#...o#o.#....#..o......o..........",
+        "choice": "C3",
+        "ms": 394,
+        "inTok": 3796,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "o........o..o.#...o..o#....#..#...o#o.#....#..o......o..........",
+        "choice": "A4",
+        "ms": 350,
+        "inTok": 3720,
+        "outTok": 402,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "o..o.....o..o.#...o..o#....#..#...o#o.#....#..o......o..........",
+        "choice": "G2",
+        "ms": 354,
+        "inTok": 3648,
+        "outTok": 394,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "o..o.....o..o.#...o..o#....#..#...o#o.#....#..o..o...o..........",
+        "choice": "D1",
+        "ms": 427,
+        "inTok": 3576,
+        "outTok": 386,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "o..o.....o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o..........",
+        "choice": "H3",
+        "ms": 416,
+        "inTok": 3504,
+        "outTok": 378,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "o..o.....o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....o.....",
+        "choice": "A6",
+        "ms": 487,
+        "inTok": 3432,
+        "outTok": 370,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "o..o.o...o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....o.....",
+        "choice": "H8",
+        "ms": 342,
+        "inTok": 3368,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o..o.o...o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....o....o",
+        "choice": "H5",
+        "ms": 389,
+        "inTok": 3304,
+        "outTok": 354,
+        "result": "hit"
+       },
+       {
+        "n": 24,
+        "board": "o..o.o...o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....o.x..o",
+        "choice": "H4",
+        "ms": 396,
+        "inTok": 3236,
+        "outTok": 346,
+        "result": "hit"
+       },
+       {
+        "n": 25,
+        "board": "o..o.o...o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....oxx..o",
+        "choice": "H6",
+        "ms": 481,
+        "inTok": 3176,
+        "outTok": 338,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 26,
+        "board": "o..o.o...o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....o###.o",
+        "choice": "A8",
+        "ms": 461,
+        "inTok": 3121,
+        "outTok": 330,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "o..o.o.o.o..o.#...o..o#.o..#..#...o#o.#....#..o..o...o....o###.o",
+        "choice": "F1",
+        "ms": 353,
+        "inTok": 3061,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "o..o.o.o.o..o.#...o..o#.o..#..#...o#o.#.o..#..o..o...o....o###.o",
+        "choice": "G4",
+        "ms": 393,
+        "inTok": 2993,
+        "outTok": 314,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "o..o.o.o.o..o.#...o..o#.o..#..#...o#o.#.o..#..o..o.o.o....o###.o",
+        "choice": "D2",
+        "ms": 367,
+        "inTok": 2937,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o..o.o.o.o..o.#...o..o#.oo.#..#...o#o.#.o..#..o..o.o.o....o###.o",
+        "choice": "D8",
+        "ms": 479,
+        "inTok": 2873,
+        "outTok": 298,
+        "result": "miss"
+       },
+       {
+        "n": 31,
+        "board": "o..o.o.o.o..o.#...o..o#.oo.#..#o..o#o.#.o..#..o..o.o.o....o###.o",
+        "choice": "E6",
+        "ms": 393,
+        "inTok": 2805,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o..o.o.o.o..o.#...o..o#.oo.#..#o..o#oo#.o..#..o..o.o.o....o###.o",
+        "choice": "A3",
+        "ms": 361,
+        "inTok": 2745,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o.oo.o.o.o..o.#...o..o#.oo.#..#o..o#oo#.o..#..o..o.o.o....o###.o",
+        "choice": "H1",
+        "ms": 408,
+        "inTok": 2685,
+        "outTok": 274,
+        "result": "hit"
+       },
+       {
+        "n": 34,
+        "board": "o.oo.o.o.o..o.#...o..o#.oo.#..#o..o#oo#.o..#..o..o.o.o..x.o###.o",
+        "choice": "H2",
+        "ms": 334,
+        "inTok": 2629,
+        "outTok": 266,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     },
+     "rival": {
+      "captain": "minimax",
+      "shots": 44,
+      "cleared": true,
+      "invalid": 1,
+      "inTok": 120936,
+      "outTok": 314,
+      "costUsd": 0.0366576,
+      "medianMs": 818,
+      "totalSeconds": 45.5,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 2388,
+        "inTok": 3968,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": "...................................x............................",
+        "choice": "D5",
+        "ms": 1500,
+        "inTok": 3898,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "............................o......x............................",
+        "choice": "E5",
+        "ms": 809,
+        "inTok": 3828,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "............................o......xo...........................",
+        "choice": "E2",
+        "ms": 1091,
+        "inTok": 3766,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "............................o....o.xo...........................",
+        "choice": "E6",
+        "ms": 511,
+        "inTok": 3704,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "............................o....o.xoo..........................",
+        "choice": "G4",
+        "ms": 2596,
+        "inTok": 3642,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "............................o....o.xoo.............o............",
+        "choice": "D4",
+        "ms": 782,
+        "inTok": 3580,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 8,
+        "board": "...........................xo....o.xoo.............o............",
+        "choice": "D2",
+        "ms": 1275,
+        "inTok": 3518,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": ".........................o.xo....o.xoo.............o............",
+        "choice": "D6",
+        "ms": 1535,
+        "inTok": 3460,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": ".........................o.xoo...o.xoo.............o............",
+        "choice": "C4",
+        "ms": 522,
+        "inTok": 3402,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "...................o.....o.xoo...o.xoo.............o............",
+        "choice": "D3",
+        "ms": 2153,
+        "inTok": 3340,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": "...................o.....ooxoo...o.xoo.............o............",
+        "choice": "F4",
+        "ms": 515,
+        "inTok": 3282,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 13,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o............",
+        "choice": "H5",
+        "ms": 839,
+        "inTok": 3225,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o........x...",
+        "choice": "H6",
+        "ms": 950,
+        "inTok": 3163,
+        "outTok": 8,
+        "result": "hit"
+       },
+       {
+        "n": 15,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o........xx..",
+        "choice": "H7",
+        "ms": 818,
+        "inTok": 3105,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o........xxo.",
+        "choice": "H6",
+        "ms": 1556,
+        "inTok": 3055,
+        "outTok": 7,
+        "result": "invalid",
+        "raw": "{\"choice\":\"H6\"}"
+       },
+       {
+        "n": 17,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o........xxo.",
+        "choice": "H3",
+        "ms": 657,
+        "inTok": 3055,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o......o.xxo.",
+        "choice": "H4",
+        "ms": 1048,
+        "inTok": 2997,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 19,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o......o###o.",
+        "choice": "H8",
+        "ms": 679,
+        "inTok": 2956,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": "...................o.....oo#oo...o.#oo.....#.......o......o###oo",
+        "choice": "F8",
+        "ms": 814,
+        "inTok": 2910,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": "...................o.....oo#oo...o.#oo.....#...o...o......o###oo",
+        "choice": "B5",
+        "ms": 563,
+        "inTok": 2852,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": "............o......o.....oo#oo...o.#oo.....#...o...o......o###oo",
+        "choice": "F5",
+        "ms": 516,
+        "inTok": 2790,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "............o......o.....oo#oo...o.#oo.....#o..o...o......o###oo",
+        "choice": "F1",
+        "ms": 1228,
+        "inTok": 2736,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "............o......o.....oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "B3",
+        "ms": 758,
+        "inTok": 2674,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "..........o.o......o.....oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "C8",
+        "ms": 1297,
+        "inTok": 2616,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "..........o.o......o...o.oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "C1",
+        "ms": 544,
+        "inTok": 2554,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "..........o.o...o..o...o.oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "B7",
+        "ms": 1040,
+        "inTok": 2492,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 28,
+        "board": "..........o.o.x.o..o...o.oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "A7",
+        "ms": 609,
+        "inTok": 2434,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 29,
+        "board": "......o...o.o.x.o..o...o.oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "C7",
+        "ms": 2809,
+        "inTok": 2380,
+        "outTok": 8,
+        "result": "hit"
+       },
+       {
+        "n": 30,
+        "board": "......o...o.o.x.o..o..xo.oo#oo...o.#oo..o..#o..o...o......o###oo",
+        "choice": "E7",
+        "ms": 1129,
+        "inTok": 2326,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 31,
+        "board": "......o...o.o.x.o..o..xo.oo#oo...o.#oox.o..#o..o...o......o###oo",
+        "choice": "D7",
+        "ms": 601,
+        "inTok": 2272,
+        "outTok": 8,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 32,
+        "board": "......o...o.o.#.o..o..#o.oo#oo#..o.#oo#.o..#o..o...o......o###oo",
+        "choice": "G6",
+        "ms": 747,
+        "inTok": 2228,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "......o...o.o.#.o..o..#o.oo#oo#..o.#oo#.o..#o..o...o.o....o###oo",
+        "choice": "A6",
+        "ms": 630,
+        "inTok": 2174,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": ".....oo...o.o.#.o..o..#o.oo#oo#..o.#oo#.o..#o..o...o.o....o###oo",
+        "choice": "G7",
+        "ms": 488,
+        "inTok": 2116,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 35,
+        "board": ".....oo...o.o.#.o..o..#o.oo#oo#..o.#oo#.o..#o..o...o.oo...o###oo",
+        "choice": "F2",
+        "ms": 1113,
+        "inTok": 2066,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 36,
+        "board": ".....oo...o.o.#.o..o..#o.oo#oo#..o.#oo#.oo.#o..o...o.oo...o###oo",
+        "choice": "A2",
+        "ms": 649,
+        "inTok": 2016,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 37,
+        "board": ".o...oo...o.o.#.o..o..#o.oo#oo#..o.#oo#.oo.#o..o...o.oo...o###oo",
+        "choice": "C6",
+        "ms": 663,
+        "inTok": 1958,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 38,
+        "board": ".o...oo...o.o.#.o..o.o#o.oo#oo#..o.#oo#.oo.#o..o...o.oo...o###oo",
+        "choice": "A4",
+        "ms": 1067,
+        "inTok": 1912,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 39,
+        "board": ".o.o.oo...o.o.#.o..o.o#o.oo#oo#..o.#oo#.oo.#o..o...o.oo...o###oo",
+        "choice": "F3",
+        "ms": 700,
+        "inTok": 1862,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 40,
+        "board": ".o.o.oo...o.o.#.o..o.o#o.oo#oo#..o.#oo#.ooo#o..o...o.oo...o###oo",
+        "choice": "F6",
+        "ms": 861,
+        "inTok": 1816,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 41,
+        "board": ".o.o.oo...o.o.#.o..o.o#o.oo#oo#..o.#oo#.ooo#oo.o...o.oo...o###oo",
+        "choice": "B2",
+        "ms": 2024,
+        "inTok": 1774,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 42,
+        "board": ".o.o.oo..oo.o.#.o..o.o#o.oo#oo#..o.#oo#.ooo#oo.o...o.oo...o###oo",
+        "choice": "H2",
+        "ms": 1184,
+        "inTok": 1724,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 43,
+        "board": ".o.o.oo..oo.o.#.o..o.o#o.oo#oo#..o.#oo#.ooo#oo.o...o.oo..xo###oo",
+        "choice": "G2",
+        "ms": 697,
+        "inTok": 1678,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 44,
+        "board": ".o.o.oo..oo.o.#.o..o.o#o.oo#oo#..o.#oo#.ooo#oo.o.o.o.oo..xo###oo",
+        "choice": "H1",
+        "ms": 577,
+        "inTok": 1632,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 2
+       }
+      ]
+     }
+    },
+    {
+     "game": 5,
+     "fleet": [
+      {
+       "len": 4,
+       "cells": [
+        51,
+        52,
+        53,
+        54
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        61,
+        62,
+        63
+       ]
+      },
+      {
+       "len": 3,
+       "cells": [
+        29,
+        30,
+        31
+       ]
+      },
+      {
+       "len": 2,
+       "cells": [
+        40,
+        41
+       ]
+      }
+     ],
+     "first": "jev",
+     "winner": "minimax",
+     "jev": {
+      "captain": "jev",
+      "shots": 36,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 130567,
+      "outTok": 14040,
+      "costUsd": 0.0060734940000000005,
+      "medianMs": 406,
+      "totalSeconds": 16.6,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "E4",
+        "ms": 1336,
+        "inTok": 4873,
+        "outTok": 530,
+        "result": "miss"
+       },
+       {
+        "n": 2,
+        "board": "...................................o............................",
+        "choice": "C3",
+        "ms": 1140,
+        "inTok": 4793,
+        "outTok": 522,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "..................o................o............................",
+        "choice": "D5",
+        "ms": 406,
+        "inTok": 4713,
+        "outTok": 514,
+        "result": "miss"
+       },
+       {
+        "n": 4,
+        "board": "..................o.........o......o............................",
+        "choice": "F3",
+        "ms": 492,
+        "inTok": 4633,
+        "outTok": 506,
+        "result": "miss"
+       },
+       {
+        "n": 5,
+        "board": "..................o.........o......o......o.....................",
+        "choice": "C6",
+        "ms": 474,
+        "inTok": 4553,
+        "outTok": 498,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "..................o..o......o......o......o.....................",
+        "choice": "B4",
+        "ms": 373,
+        "inTok": 4473,
+        "outTok": 490,
+        "result": "miss"
+       },
+       {
+        "n": 7,
+        "board": "...........o......o..o......o......o......o.....................",
+        "choice": "F6",
+        "ms": 428,
+        "inTok": 4397,
+        "outTok": 482,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "...........o......o..o......o......o......o..o..................",
+        "choice": "G5",
+        "ms": 400,
+        "inTok": 4317,
+        "outTok": 474,
+        "result": "hit"
+       },
+       {
+        "n": 9,
+        "board": "...........o......o..o......o......o......o..o......x...........",
+        "choice": "G4",
+        "ms": 352,
+        "inTok": 4241,
+        "outTok": 466,
+        "result": "hit"
+       },
+       {
+        "n": 10,
+        "board": "...........o......o..o......o......o......o..o.....xx...........",
+        "choice": "G3",
+        "ms": 345,
+        "inTok": 4173,
+        "outTok": 458,
+        "result": "miss"
+       },
+       {
+        "n": 11,
+        "board": "...........o......o..o......o......o......o..o....oxx...........",
+        "choice": "G6",
+        "ms": 338,
+        "inTok": 4109,
+        "outTok": 450,
+        "result": "hit"
+       },
+       {
+        "n": 12,
+        "board": "...........o......o..o......o......o......o..o....oxxx..........",
+        "choice": "G7",
+        "ms": 414,
+        "inTok": 4045,
+        "outTok": 442,
+        "result": "sunk",
+        "sunkLen": 4
+       },
+       {
+        "n": 13,
+        "board": "...........o......o..o......o......o......o..o....o####.........",
+        "choice": "D2",
+        "ms": 367,
+        "inTok": 3983,
+        "outTok": 434,
+        "result": "miss"
+       },
+       {
+        "n": 14,
+        "board": "...........o......o..o...o..o......o......o..o....o####.........",
+        "choice": "A1",
+        "ms": 420,
+        "inTok": 3907,
+        "outTok": 426,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": "o..........o......o..o...o..o......o......o..o....o####.........",
+        "choice": "B7",
+        "ms": 366,
+        "inTok": 3843,
+        "outTok": 418,
+        "result": "miss"
+       },
+       {
+        "n": 16,
+        "board": "o..........o..o...o..o...o..o......o......o..o....o####.........",
+        "choice": "B2",
+        "ms": 406,
+        "inTok": 3771,
+        "outTok": 410,
+        "result": "miss"
+       },
+       {
+        "n": 17,
+        "board": "o........o.o..o...o..o...o..o......o......o..o....o####.........",
+        "choice": "A5",
+        "ms": 403,
+        "inTok": 3707,
+        "outTok": 402,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": "o...o....o.o..o...o..o...o..o......o......o..o....o####.........",
+        "choice": "E1",
+        "ms": 338,
+        "inTok": 3635,
+        "outTok": 394,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": "o...o....o.o..o...o..o...o..o...o..o......o..o....o####.........",
+        "choice": "D8",
+        "ms": 386,
+        "inTok": 3563,
+        "outTok": 386,
+        "result": "hit"
+       },
+       {
+        "n": 20,
+        "board": "o...o....o.o..o...o..o...o..o..xo..o......o..o....o####.........",
+        "choice": "D7",
+        "ms": 888,
+        "inTok": 3491,
+        "outTok": 378,
+        "result": "hit"
+       },
+       {
+        "n": 21,
+        "board": "o...o....o.o..o...o..o...o..o.xxo..o......o..o....o####.........",
+        "choice": "D6",
+        "ms": 433,
+        "inTok": 3427,
+        "outTok": 370,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 22,
+        "board": "o...o....o.o..o...o..o...o..o###o..o......o..o....o####.........",
+        "choice": "H1",
+        "ms": 431,
+        "inTok": 3368,
+        "outTok": 362,
+        "result": "miss"
+       },
+       {
+        "n": 23,
+        "board": "o...o....o.o..o...o..o...o..o###o..o......o..o....o####.o.......",
+        "choice": "G8",
+        "ms": 353,
+        "inTok": 3304,
+        "outTok": 354,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": "o...o....o.o..o...o..o...o..o###o..o......o..o....o####oo.......",
+        "choice": "A8",
+        "ms": 427,
+        "inTok": 3244,
+        "outTok": 346,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": "o...o..o.o.o..o...o..o...o..o###o..o......o..o....o####oo.......",
+        "choice": "E7",
+        "ms": 344,
+        "inTok": 3180,
+        "outTok": 338,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": "o...o..o.o.o..o...o..o...o..o###o..o..o...o..o....o####oo.......",
+        "choice": "C1",
+        "ms": 451,
+        "inTok": 3112,
+        "outTok": 330,
+        "result": "miss"
+       },
+       {
+        "n": 27,
+        "board": "o...o..o.o.o..o.o.o..o...o..o###o..o..o...o..o....o####oo.......",
+        "choice": "A3",
+        "ms": 546,
+        "inTok": 3052,
+        "outTok": 322,
+        "result": "miss"
+       },
+       {
+        "n": 28,
+        "board": "o.o.o..o.o.o..o.o.o..o...o..o###o..o..o...o..o....o####oo.......",
+        "choice": "F2",
+        "ms": 539,
+        "inTok": 2992,
+        "outTok": 314,
+        "result": "hit"
+       },
+       {
+        "n": 29,
+        "board": "o.o.o..o.o.o..o.o.o..o...o..o###o..o..o..xo..o....o####oo.......",
+        "choice": "G2",
+        "ms": 475,
+        "inTok": 2924,
+        "outTok": 306,
+        "result": "miss"
+       },
+       {
+        "n": 30,
+        "board": "o.o.o..o.o.o..o.o.o..o...o..o###o..o..o..xo..o...oo####oo.......",
+        "choice": "F1",
+        "ms": 343,
+        "inTok": 2864,
+        "outTok": 298,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 31,
+        "board": "o.o.o..o.o.o..o.o.o..o...o..o###o..o..o.##o..o...oo####oo.......",
+        "choice": "H4",
+        "ms": 383,
+        "inTok": 2808,
+        "outTok": 290,
+        "result": "miss"
+       },
+       {
+        "n": 32,
+        "board": "o.o.o..o.o.o..o.o.o..o...o..o###o..o..o.##o..o...oo####oo..o....",
+        "choice": "D3",
+        "ms": 425,
+        "inTok": 2740,
+        "outTok": 282,
+        "result": "miss"
+       },
+       {
+        "n": 33,
+        "board": "o.o.o..o.o.o..o.o.o..o...oo.o###o..o..o.##o..o...oo####oo..o....",
+        "choice": "C5",
+        "ms": 345,
+        "inTok": 2676,
+        "outTok": 274,
+        "result": "miss"
+       },
+       {
+        "n": 34,
+        "board": "o.o.o..o.o.o..o.o.o.oo...oo.o###o..o..o.##o..o...oo####oo..o....",
+        "choice": "H8",
+        "ms": 365,
+        "inTok": 2612,
+        "outTok": 266,
+        "result": "hit"
+       },
+       {
+        "n": 35,
+        "board": "o.o.o..o.o.o..o.o.o.oo...oo.o###o..o..o.##o..o...oo####oo..o...x",
+        "choice": "H7",
+        "ms": 341,
+        "inTok": 2552,
+        "outTok": 258,
+        "result": "hit"
+       },
+       {
+        "n": 36,
+        "board": "o.o.o..o.o.o..o.o.o.oo...oo.o###o..o..o.##o..o...oo####oo..o..xx",
+        "choice": "H6",
+        "ms": 375,
+        "inTok": 2492,
+        "outTok": 250,
+        "result": "sunk",
+        "sunkLen": 3
+       }
+      ]
+     },
+     "rival": {
+      "captain": "minimax",
+      "shots": 28,
+      "cleared": true,
+      "invalid": 0,
+      "inTok": 88280,
+      "outTok": 200,
+      "costUsd": 0.026724,
+      "medianMs": 1286,
+      "totalSeconds": 33.5,
+      "turns": [
+       {
+        "n": 1,
+        "board": "................................................................",
+        "choice": "D6",
+        "ms": 1456,
+        "inTok": 3968,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 2,
+        "board": ".............................x..................................",
+        "choice": "D4",
+        "ms": 667,
+        "inTok": 3898,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 3,
+        "board": "...........................o.x..................................",
+        "choice": "D8",
+        "ms": 1905,
+        "inTok": 3832,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 4,
+        "board": "...........................o.x.x................................",
+        "choice": "D7",
+        "ms": 1465,
+        "inTok": 3774,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 5,
+        "board": "...........................o.###................................",
+        "choice": "E5",
+        "ms": 1335,
+        "inTok": 3717,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 6,
+        "board": "...........................o.###....o...........................",
+        "choice": "F2",
+        "ms": 645,
+        "inTok": 3647,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 7,
+        "board": "...........................o.###....o....x......................",
+        "choice": "H2",
+        "ms": 511,
+        "inTok": 3581,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 8,
+        "board": "...........................o.###....o....x...............o......",
+        "choice": "D2",
+        "ms": 601,
+        "inTok": 3527,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 9,
+        "board": ".........................o.o.###....o....x...............o......",
+        "choice": "E2",
+        "ms": 848,
+        "inTok": 3469,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 10,
+        "board": ".........................o.o.###.o..o....x...............o......",
+        "choice": "F1",
+        "ms": 871,
+        "inTok": 3411,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 2
+       },
+       {
+        "n": 11,
+        "board": ".........................o.o.###.o..o...##...............o......",
+        "choice": "B6",
+        "ms": 982,
+        "inTok": 3353,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 12,
+        "board": ".............o...........o.o.###.o..o...##...............o......",
+        "choice": "C5",
+        "ms": 1454,
+        "inTok": 3291,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 13,
+        "board": ".............o......o....o.o.###.o..o...##...............o......",
+        "choice": "H7",
+        "ms": 1314,
+        "inTok": 3225,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 14,
+        "board": ".............o......o....o.o.###.o..o...##...............o....x.",
+        "choice": "H5",
+        "ms": 1612,
+        "inTok": 3167,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 15,
+        "board": ".............o......o....o.o.###.o..o...##...............o..o.x.",
+        "choice": "H8",
+        "ms": 1508,
+        "inTok": 3109,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 16,
+        "board": ".............o......o....o.o.###.o..o...##...............o..o.xx",
+        "choice": "H6",
+        "ms": 622,
+        "inTok": 3059,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 3
+       },
+       {
+        "n": 17,
+        "board": ".............o......o....o.o.###.o..o...##...............o..o###",
+        "choice": "G3",
+        "ms": 655,
+        "inTok": 3010,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 18,
+        "board": ".............o......o....o.o.###.o..o...##........o......o..o###",
+        "choice": "C1",
+        "ms": 547,
+        "inTok": 2944,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 19,
+        "board": ".............o..o...o....o.o.###.o..o...##........o......o..o###",
+        "choice": "B2",
+        "ms": 617,
+        "inTok": 2882,
+        "outTok": 8,
+        "result": "miss"
+       },
+       {
+        "n": 20,
+        "board": ".........o...o..o...o....o.o.###.o..o...##........o......o..o###",
+        "choice": "F6",
+        "ms": 896,
+        "inTok": 2824,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 21,
+        "board": ".........o...o..o...o....o.o.###.o..o...##...o....o......o..o###",
+        "choice": "F4",
+        "ms": 1568,
+        "inTok": 2762,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 22,
+        "board": ".........o...o..o...o....o.o.###.o..o...##.o.o....o......o..o###",
+        "choice": "G7",
+        "ms": 3026,
+        "inTok": 2704,
+        "outTok": 8,
+        "result": "hit"
+       },
+       {
+        "n": 23,
+        "board": ".........o...o..o...o....o.o.###.o..o...##.o.o....o...x..o..o###",
+        "choice": "G8",
+        "ms": 1837,
+        "inTok": 2646,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 24,
+        "board": ".........o...o..o...o....o.o.###.o..o...##.o.o....o...xo.o..o###",
+        "choice": "E7",
+        "ms": 1286,
+        "inTok": 2596,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 25,
+        "board": ".........o...o..o...o....o.o.###.o..o.o.##.o.o....o...xo.o..o###",
+        "choice": "F7",
+        "ms": 1292,
+        "inTok": 2542,
+        "outTok": 7,
+        "result": "miss"
+       },
+       {
+        "n": 26,
+        "board": ".........o...o..o...o....o.o.###.o..o.o.##.o.oo...o...xo.o..o###",
+        "choice": "G5",
+        "ms": 2709,
+        "inTok": 2496,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 27,
+        "board": ".........o...o..o...o....o.o.###.o..o.o.##.o.oo...o.x.xo.o..o###",
+        "choice": "G6",
+        "ms": 475,
+        "inTok": 2446,
+        "outTok": 7,
+        "result": "hit"
+       },
+       {
+        "n": 28,
+        "board": ".........o...o..o...o....o.o.###.o..o.o.##.o.oo...o.xxxo.o..o###",
+        "choice": "G4",
+        "ms": 754,
+        "inTok": 2400,
+        "outTok": 7,
+        "result": "sunk",
+        "sunkLen": 4
+       }
+      ]
+     }
+    }
+   ],
+   "summary": {
+    "jev": {
+     "wins": 3,
+     "meanShots": 36.4,
+     "invalid": 0,
+     "medianMs": 388,
+     "totalSeconds": 80.8,
+     "costUsd": 0.03065,
+     "inTok": 659294,
+     "outTok": 70492
+    },
+    "rival": {
+     "wins": 2,
+     "meanShots": 37.2,
+     "invalid": 1,
+     "medianMs": 1010,
+     "totalSeconds": 221,
+     "costUsd": 0.16253,
+     "inTok": 536439,
+     "outTok": 1328
+    }
+   }
+  }
+ ],
+ "finishedAt": "2026-09-20T07:06:07.715Z"
+}

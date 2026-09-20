@@ -1,0 +1,179 @@
+{
+  "state": {
+    "board_size": "8 rows A-H, 8 columns 1-8. A1 is top left; H8 is bottom right.",
+    "initial_ship_lengths": [
+      4,
+      3,
+      3,
+      2
+    ],
+    "remaining_ship_lengths": [
+      4,
+      3,
+      3,
+      2
+    ],
+    "cell_states": {
+      "need-to-check": "Not fired at yet. May contain a remaining ship. This is the only selectable state.",
+      "miss": "Already fired at: empty water. Cannot contain a ship. Do not select.",
+      "hit": "Already fired at: part of a ship still afloat. Find its other cells. Do not select this cell again.",
+      "sunk": "Already fired at: part of a destroyed ship. That ship is finished and excluded from remaining_ship_lengths. Do not select."
+    },
+    "rules": "Each ship is a straight, consecutive horizontal or vertical line of its stated length. Ships cannot overlap but may touch. Remaining ships cannot pass through miss or sunk cells. A ship is sunk only when all its cells are hit.",
+    "grid": {
+      "A": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "B": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "C": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "D": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "E": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "F": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "G": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ],
+      "H": [
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check",
+        "need-to-check"
+      ]
+    },
+    "grid_order": "Each row lists columns 1 through 8, left to right."
+  },
+  "questions": {
+    "shot": {
+      "type": "choice",
+      "instructions": "Battleship: choose the next cell to fire at, to sink all remaining ships in as few shots as possible. Each option lists the state of its four neighbours, then the state of the cells one further in the same four directions. If any option has a hit neighbour, choose one of those. Best is an option where the same direction is hit both as neighbour and one further, for example \"down hit\" in both lists: it continues a line of hits. Otherwise choose an option whose neighbours are all need-to-check, in the largest untouched area. Avoid options with miss, sunk or edge neighbours.",
+      "criteria": {
+        "F7": "F7. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "A3": "A3. Neighbours: up edge, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "C6": "C6. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "C5": "C5. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "H1": "H1. Neighbours: up need-to-check, down edge, left edge, right need-to-check. One further: up need-to-check, down edge, left edge, right need-to-check.",
+        "F6": "F6. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "B7": "B7. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right edge.",
+        "A8": "A8. Neighbours: up edge, down need-to-check, left need-to-check, right edge. One further: up edge, down need-to-check, left need-to-check, right edge.",
+        "E7": "E7. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "D1": "D1. Neighbours: up need-to-check, down need-to-check, left edge, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "H8": "H8. Neighbours: up need-to-check, down edge, left need-to-check, right edge. One further: up need-to-check, down edge, left need-to-check, right edge.",
+        "B3": "B3. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "G7": "G7. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right edge.",
+        "A5": "A5. Neighbours: up edge, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "E1": "E1. Neighbours: up need-to-check, down need-to-check, left edge, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "G2": "G2. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left edge, right need-to-check.",
+        "F3": "F3. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "D7": "D7. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "E3": "E3. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "F4": "F4. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "A6": "A6. Neighbours: up edge, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "C7": "C7. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "B6": "B6. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "D8": "D8. Neighbours: up need-to-check, down need-to-check, left need-to-check, right edge. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "C3": "C3. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "B8": "B8. Neighbours: up need-to-check, down need-to-check, left need-to-check, right edge. One further: up edge, down need-to-check, left need-to-check, right edge.",
+        "B5": "B5. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "G6": "G6. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "G5": "G5. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "D3": "D3. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "B1": "B1. Neighbours: up need-to-check, down need-to-check, left edge, right need-to-check. One further: up edge, down need-to-check, left edge, right need-to-check.",
+        "C8": "C8. Neighbours: up need-to-check, down need-to-check, left need-to-check, right edge. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "H7": "H7. Neighbours: up need-to-check, down edge, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right edge.",
+        "C2": "C2. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "D2": "D2. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "A4": "A4. Neighbours: up edge, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "F1": "F1. Neighbours: up need-to-check, down need-to-check, left edge, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "G4": "G4. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "D5": "D5. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "C4": "C4. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "E2": "E2. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "B2": "B2. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left edge, right need-to-check.",
+        "G1": "G1. Neighbours: up need-to-check, down need-to-check, left edge, right need-to-check. One further: up need-to-check, down edge, left edge, right need-to-check.",
+        "B4": "B4. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right need-to-check.",
+        "H2": "H2. Neighbours: up need-to-check, down edge, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left edge, right need-to-check.",
+        "E4": "E4. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "F5": "F5. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "A1": "A1. Neighbours: up edge, down need-to-check, left edge, right need-to-check. One further: up edge, down need-to-check, left edge, right need-to-check.",
+        "E8": "E8. Neighbours: up need-to-check, down need-to-check, left need-to-check, right edge. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "H3": "H3. Neighbours: up need-to-check, down edge, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "D6": "D6. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "G3": "G3. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "A7": "A7. Neighbours: up edge, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left need-to-check, right edge.",
+        "E6": "E6. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "F8": "F8. Neighbours: up need-to-check, down need-to-check, left need-to-check, right edge. One further: up need-to-check, down need-to-check, left need-to-check, right edge.",
+        "E5": "E5. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check.",
+        "H6": "H6. Neighbours: up need-to-check, down edge, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "H5": "H5. Neighbours: up need-to-check, down edge, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "A2": "A2. Neighbours: up edge, down need-to-check, left need-to-check, right need-to-check. One further: up edge, down need-to-check, left edge, right need-to-check.",
+        "G8": "G8. Neighbours: up need-to-check, down need-to-check, left need-to-check, right edge. One further: up need-to-check, down edge, left need-to-check, right edge.",
+        "H4": "H4. Neighbours: up need-to-check, down edge, left need-to-check, right need-to-check. One further: up need-to-check, down edge, left need-to-check, right need-to-check.",
+        "C1": "C1. Neighbours: up need-to-check, down need-to-check, left edge, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "F2": "F2. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left edge, right need-to-check.",
+        "D4": "D4. Neighbours: up need-to-check, down need-to-check, left need-to-check, right need-to-check. One further: up need-to-check, down need-to-check, left need-to-check, right need-to-check."
+      }
+    }
+  }
+}

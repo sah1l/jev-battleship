@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battleship against Jev</title>
+<meta name="description" content="Play Battleship against Jev, a model that answers in probabilities. Its aim is printed on your chart before every shot.">
+<meta property="og:title" content="Battleship against Jev">
+<meta property="og:description" content="Jev answers in probabilities, so you see where it wants to fire before it fires. Sink its fleet first.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23CFE4E6'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23B0128F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2F5F0;
+    --sea: #CFE4E6;
+    --sea-deep: #A9CCD3;
+    --sand: #E8D9A4;
+    --ink: #17253E;
+    --ink-soft: #56657F;
+    --signal: #B0128F;
+    --fire: #C8321F;
+    --rule: rgba(23, 37, 62, .26);
+    --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --ui: "IBM Plex Sans Condensed", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.45 var(--ui);
+    font-variant-numeric: tabular-nums;
+  }
+  .page { max-width: 1080px; margin: 0 auto; padding: 24px 16px 32px; }
+
+  /* Masthead: title and the two setup controls share one line. */
+  .top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
+  .top h1 { font: 400 clamp(1.9rem, 4.4vw, 2.9rem)/1 var(--display); margin: 0; letter-spacing: .005em; }
+  .top h1 em { font-style: italic; }
+  .top p { margin: 4px 0 0; color: var(--ink-soft); font-size: .98rem; max-width: 46ch; }
+  .controls { display: flex; gap: 8px; }
+
+  .btn {
+    font: 500 1rem/1 var(--ui);
+    padding: 11px 18px;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--signal); border-color: var(--signal); color: #fff; }
+  .btn:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+  /* Log line: one sentence, and a mark that says whose turn it is. */
+  .log {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 18px;
+    padding: 11px 0;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    min-height: 3em;
+  }
+  .log .mark { width: 11px; height: 11px; flex: none; background: var(--ink); }
+  .log.thinking .mark { background: var(--signal); animation: pulse 1.1s ease-in-out infinite; }
+  .log p { margin: 0; font-size: 1.02rem; }
+  .log .retry { margin-left: auto; font-size: .9rem; padding: 7px 12px; }
+  @keyframes pulse { 50% { opacity: .25; } }
+
+  .views { display: none; gap: 0; margin-bottom: 14px; border: 1px solid var(--rule); }
+  .views button {
+    flex: 1;
+    font: 500 .95rem var(--ui);
+    padding: 9px 6px;
+    background: transparent;
+    color: var(--ink-soft);
+    border: 0;
+    cursor: pointer;
+  }
+  .views button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 44px); align-items: start; }
+  .chart-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 8px;
+    font: 400 1.45rem/1.1 var(--display);
+  }
+  .chart-head .meta { font: 400 .92rem var(--ui); color: var(--ink-soft); margin-left: auto; }
+
+  /* The neatline: the striped scale border printed around a sea chart. */
+  .neat {
+    position: relative;
+    padding: 7px;
+    background: repeating-linear-gradient(45deg, var(--ink) 0 9px, var(--paper) 9px 18px);
+    outline: 1px solid var(--ink);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4em repeat(8, 1fr);
+    gap: 1px;
+    background: var(--paper);
+    padding: 2px 5px 5px 2px;
+    outline: 1px solid var(--ink);
+  }
+  .grid .lab {
+    font: italic 400 .82rem var(--ui);
+    color: var(--ink-soft);
+    display: grid;
+    place-items: center;
+    min-height: 1.5em;
+  }
+  .cell {
+    position: relative;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--sea);
+    box-shadow: 0 0 0 1px var(--rule);
+    color: inherit;
+    font: inherit;
+    overflow: hidden;
+  }
+  .cell:nth-child(odd) { background: color-mix(in srgb, var(--sea) 84%, var(--sea-deep)); }
+  .cell:focus-visible { outline: 3px solid var(--signal); outline-offset: -3px; z-index: 3; }
+  #jev-grid.live .cell:not([disabled]) { cursor: crosshair; }
+  #jev-grid.live .cell:not([disabled]):hover { background: var(--sea-deep); box-shadow: inset 0 0 0 2px var(--ink); }
+  .cell[disabled] { cursor: default; }
+
+  .cell.ship { background: var(--sand); }
+  .cell.ship::before { content: ""; position: absolute; inset: 0; z-index: 1; box-shadow: var(--hull); pointer-events: none; }
+  .cell.sunk { background: repeating-linear-gradient(45deg, var(--fire) 0 3px, var(--ink) 3px 6px); box-shadow: none; }
+  .cell.reveal { background: var(--sand); box-shadow: inset 0 0 0 2px var(--ink-soft); }
+
+  .cell .wash {
+    position: absolute;
+    inset: 0;
+    background: var(--signal);
+    opacity: 0;
+    transition: opacity .35s ease;
+    pointer-events: none;
+  }
+  .cell .pct {
+    position: absolute;
+    left: 3px;
+    top: 0;
+    z-index: 2;
+    font: 600 .74rem/1.35 var(--ui);
+    color: var(--ink);
+    pointer-events: none;
+  }
+  .cell .pct.loud { color: #fff; }
+  .cell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .cell.miss::after { width: 26%; height: 26%; border: 2px solid var(--ink); background: var(--paper); }
+  .cell.hit::after { width: 52%; height: 52%; background: var(--fire); border: 2px solid var(--paper); }
+  .cell.sunk::after { width: 30%; height: 30%; background: var(--paper); }
+  /* Jev's chosen square, marked like a bearing on a chart. */
+  .cell.aim { outline: 2px solid var(--signal); outline-offset: -2px; z-index: 3; }
+  .cell.aim::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+      linear-gradient(var(--signal), var(--signal)) 50% 0 / 2px 26% no-repeat,
+      linear-gradient(var(--signal), var(--signal)) 50% 100% / 2px 26% no-repeat,
+      linear-gradient(var(--signal), var(--signal)) 0 50% / 26% 2px no-repeat,
+      linear-gradient(var(--signal), var(--signal)) 100% 50% / 26% 2px no-repeat;
+    box-shadow: none;
+    pointer-events: none;
+  }
+  @keyframes land { from { transform: scale(2.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .cell.fresh::after { animation: land .32s cubic-bezier(.2, .9, .3, 1.2); }
+
+  /* One sweep of the chart while Jev is deciding. */
+  .neat.reading::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent 42%, rgba(176, 18, 143, .22) 50%, transparent 58%);
+    background-size: 260% 100%;
+    animation: sweep 1.15s linear infinite;
+  }
+  @keyframes sweep { from { background-position: 130% 0; } to { background-position: -30% 0; } }
+
+  .under { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+  .fleet { list-style: none; margin: 0; padding: 0; display: flex; gap: 12px; align-items: center; }
+  .fleet li { display: flex; gap: 2px; }
+  .fleet i { width: 10px; height: 10px; background: var(--ink); display: block; }
+  .fleet li.down i { background: var(--fire); transform: rotate(45deg); }
+
+  .aim-key { display: flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--ink-soft); }
+  .aim-key .bar { flex: 1; max-width: 150px; height: 10px; background: linear-gradient(90deg, color-mix(in srgb, var(--signal) 7%, var(--sea)), var(--signal)); outline: 1px solid var(--rule); }
+
+  /* Telemetry: the numbers that make Jev interesting, not sentences about them. */
+  .tele { display: flex; gap: 22px; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 9px; }
+  .tele div { display: flex; flex-direction: column; }
+  .tele b { font: 400 1.32rem/1.1 var(--display); }
+  .tele span { font-size: .82rem; color: var(--ink-soft); }
+
+  .notes { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 14px; font-size: .92rem; color: var(--ink-soft); }
+  .notes summary { cursor: pointer; color: var(--ink); font-weight: 500; }
+  .notes ul { margin: 10px 0 0; padding-left: 18px; max-width: 74ch; }
+  .notes li { margin-bottom: 5px; }
+  .notes a, .colophon a { color: inherit; }
+  .colophon { margin-top: 12px; font-size: .88rem; color: var(--ink-soft); }
+
+  dialog {
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 0;
+    width: min(430px, calc(100vw - 28px));
+    box-shadow: 9px 9px 0 rgba(23, 37, 62, .16);
+  }
+  dialog::backdrop { background: rgba(23, 37, 62, .55); }
+  .result { padding: 22px; }
+  .result h2 { font: italic 400 2.4rem/1 var(--display); margin: 0 0 4px; }
+  .result .sum { margin: 0 0 14px; color: var(--ink-soft); }
+  .score { display: flex; align-items: baseline; gap: 10px; border-top: 1.5px solid var(--ink); padding-top: 10px; }
+  .score b { font: 400 2.8rem/1 var(--display); }
+  .score span { color: var(--ink-soft); font-size: .9rem; }
+  .break { margin: 6px 0 14px; padding: 0; list-style: none; font-size: .88rem; color: var(--ink-soft); }
+  .break li { display: flex; justify-content: space-between; border-bottom: 1px dotted var(--rule); padding: 3px 0; }
+  #share-text {
+    width: 100%;
+    height: 14.5em;
+    resize: none;
+    font: 400 .86rem/1.35 var(--ui);
+    padding: 9px;
+    border: 1px solid var(--rule);
+    border-radius: 0;
+    background: #fff;
+    color: var(--ink);
+  }
+  .result .controls { margin-top: 12px; }
+
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .page { padding-top: 18px; }
+    .top h1 { font-size: 1.75rem; }
+    .top p { display: none; }
+    .controls { flex: 1; }
+    .controls .btn { flex: 1; padding: 11px 8px; }
+    .views { display: flex; }
+    .charts { grid-template-columns: 1fr; gap: 0; }
+    .charts[data-view="jev"] .mine, .charts[data-view="mine"] .theirs { display: none; }
+    .sea { max-width: 460px; margin: 0 auto; width: 100%; }
+    .log { margin: 14px 0 12px; }
+    /* The view control already names the chart, so the heading only carries its reading. */
+    .chart-head .ct { display: none; }
+    .chart-head { min-height: 1.2em; margin-bottom: 4px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cell .wash { transition: none; }
+    .cell.fresh::after, .log.thinking .mark, .neat.reading::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <div>
+      <h1>Battleship against <em>Jev</em></h1>
+      <p>Jev answers in probabilities, so you can see where it wants to fire before it fires.</p>
+    </div>
+    <div class="controls" id="setup">
+      <button class="btn solid" id="start" type="button">Play</button>
+      <button class="btn" id="shuffle" type="button">Reshuffle</button>
+    </div>
+  </header>
+
+  <div class="log" id="log">
+    <span class="mark" aria-hidden="true"></span>
+    <p id="status" role="status" aria-live="polite"></p>
+    <button class="btn retry" id="retry" type="button" hidden>Ask Jev again</button>
+  </div>
+
+  <div class="views" role="group" aria-label="Chart to show">
+    <button type="button" data-view="jev" aria-pressed="false">Jev's waters</button>
+    <button type="button" data-view="mine" aria-pressed="true">Your waters</button>
+  </div>
+
+  <main class="charts" id="charts" data-view="mine">
+    <section class="sea theirs" aria-labelledby="jev-title">
+      <h2 class="chart-head" id="jev-title"><span class="ct">Jev&rsquo;s waters</span><span class="meta" id="shot-count"></span></h2>
+      <div class="neat"><div class="grid" id="jev-grid"></div></div>
+      <div class="under"><ul class="fleet" id="jev-fleet" aria-label="Jev's ships"></ul></div>
+    </section>
+
+    <section class="sea mine" aria-labelledby="my-title">
+      <h2 class="chart-head" id="my-title"><span class="ct">Your waters</span><span class="meta" id="aim-note"></span></h2>
+      <div class="neat" id="my-neat"><div class="grid" id="my-grid"></div></div>
+      <div class="under">
+        <ul class="fleet" id="my-fleet" aria-label="Your ships"></ul>
+        <div class="aim-key"><span>Jev's aim</span><span class="bar"></span><span>likeliest</span></div>
+        <div class="tele" id="tele" hidden>
+          <div><b id="t-last">0 ms</b><span>last decision</span></div>
+          <div><b id="t-avg">0 ms</b><span>average</span></div>
+          <div><b id="t-tokens">0</b><span>tokens read</span></div>
+          <div><b id="t-cost">$0</b><span>spent</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <details class="notes">
+    <summary>How Jev decides</summary>
+    <ul>
+      <li>Each turn it gets the whole chart, the cell states, the ship lengths and the rules. Your ship positions are never sent.</li>
+      <li>Every untested square is offered as an option, described by what has been observed around it. It returns a probability for each one and the highest is fired at.</li>
+      <li>No local code picks, scores or filters targets. The only check is that the square has not been fired at.</li>
+      <li>The percentages are how strongly Jev prefers a square, not the odds that a ship sits there.</li>
+    </ul>
+  </details>
+  <p class="colophon">Jev is a System One model from <a href="https://typesafe.ai" rel="noopener">TypeSafe AI</a>. <a href="https://github.com/sah1l/jev-battleship" rel="noopener">Source and benchmarks</a>.</p>
+</div>
+
+<dialog id="result" aria-labelledby="result-title">
+  <div class="result">
+    <h2 id="result-title"></h2>
+    <p class="sum" id="result-sum"></p>
+    <div class="score"><b id="score">0</b><span id="best"></span></div>
+    <ul class="break" id="break"></ul>
+    <textarea id="share-text" readonly aria-label="Your result, ready to paste"></textarea>
+    <div class="controls">
+      <button class="btn solid" id="copy" type="button">Copy result</button>
+      <button class="btn" id="again" type="button">Play again</button>
+    </div>
+  </div>
+</dialog>
+
+<script type="module">
+const N = 8;
+
+const FLEET = [
+  { name: 'cruiser', len: 4 },
+  { name: 'destroyer', len: 3 },
+  { name: 'submarine', len: 3 },
+  { name: 'patrol boat', len: 2 },
+];
+const FLEET_CELLS = FLEET.reduce((n, s) => n + s.len, 0);
+const ROWS = 'ABCDEFGH';
+const PRICE_PER_TOKEN = 0.042 / 1e6;
+const label = i => ROWS[Math.floor(i / N)] + (i % N + 1);
+const sleep = ms => new Promise(done => setTimeout(done, ms));
+const $ = id => document.getElementById(id);
+
+const els = {
+  log: $('log'), status: $('status'), charts: $('charts'), jevGrid: $('jev-grid'), myGrid: $('my-grid'),
+  jevFleet: $('jev-fleet'), myFleet: $('my-fleet'), setup: $('setup'), myNeat: $('my-neat'),
+  shotCount: $('shot-count'), aimNote: $('aim-note'), tele: $('tele'), dialog: $('result'),
+};
+let me, jev, phase, stats;
+
+function placeFleet() {
+  for (;;) {
+    const taken = new Set();
+    const ships = [];
+    let ok = true;
+    for (const { name, len } of FLEET) {
+      let placed = false;
+      for (let tries = 0; tries < 200 && !placed; tries++) {
+        const across = Math.random() < .5;
+        const r = Math.floor(Math.random() * (across ? N : N - len + 1));
+        const c = Math.floor(Math.random() * (across ? N - len + 1 : N));
+        const cells = Array.from({ length: len }, (_, k) => (r + (across ? 0 : k)) * N + c + (across ? k : 0));
+        if (cells.some(i => taken.has(i))) continue;
+        cells.forEach(i => taken.add(i));
+        ships.push({ name, len, cells, hits: 0 });
+        placed = true;
+      }
+      if (!placed) { ok = false; break; }
+    }
+    if (ok) return ships;
+  }
+}
+
+const newSide = () => ({ ships: placeFleet(), shots: new Array(N * N).fill(null) });
+const afloat = side => side.ships.filter(s => s.hits < s.len);
+const cellsLeft = side => afloat(side).reduce((n, s) => n + s.len - s.hits, 0);
+
+function fire(side, i) {
+  const ship = side.ships.find(s => s.cells.includes(i));
+  if (!ship) { side.shots[i] = 'miss'; return { hit: false }; }
+  ship.hits++;
+  side.shots[i] = 'hit';
+  const sunk = ship.hits === ship.len;
+  if (sunk) ship.cells.forEach(c => { side.shots[c] = 'sunk'; });
+  return { hit: true, sunk: sunk ? ship : null };
+}
+
+function buildGrid(root, onPick) {
+  root.textContent = '';
+  const corner = document.createElement('span');
+  corner.className = 'lab';
+  root.append(corner);
+  for (let c = 1; c <= N; c++) {
+    const l = document.createElement('span');
+    l.className = 'lab';
+    l.textContent = c;
+    root.append(l);
+  }
+  const cells = [];
+  for (let i = 0; i < N * N; i++) {
+    if (i % N === 0) {
+      const l = document.createElement('span');
+      l.className = 'lab';
+      l.textContent = ROWS[i / N];
+      root.append(l);
+    }
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'cell';
+    b.innerHTML = '<span class="wash"></span><span class="pct"></span>';
+    if (onPick) b.addEventListener('click', () => onPick(i));
+    else b.tabIndex = -1;
+    root.append(b);
+    cells.push(b);
+  }
+  return cells;
+}
+const jevCells = buildGrid(els.jevGrid, humanShot);
+const myCells = buildGrid(els.myGrid, null);
+
+function paint(fresh) {
+  jevCells.forEach((b, i) => {
+    const s = jev.shots[i];
+    const lost = phase === 'over' && !s && jev.ships.some(sh => sh.cells.includes(i));
+    b.className = 'cell' + (s ? ' ' + s : '') + (lost ? ' reveal' : '') + (fresh === 'jev:' + i ? ' fresh' : '');
+    b.disabled = phase !== 'human' || !!s;
+    b.setAttribute('aria-label', `${label(i)}, ${s || 'untested'}`);
+  });
+  myCells.forEach((b, i) => {
+    const s = me.shots[i];
+    const ship = me.ships.some(sh => sh.cells.includes(i));
+    const keepAim = b.classList.contains('aim');
+    b.className = 'cell' + (ship && s !== 'sunk' ? ' ship' : '') + (s ? ' ' + s : '') +
+      (keepAim ? ' aim' : '') + (fresh === 'me:' + i ? ' fresh' : '');
+    const mine = me.ships.find(sh => sh.cells.includes(i));
+    if (mine) {
+      const edge = (di, ok) => (ok && mine.cells.includes(i + di)) ? null : di;
+      const sides = [edge(-N, true) && 'inset 0 3px 0 0', edge(N, true) && 'inset 0 -3px 0 0',
+        edge(-1, i % N > 0) && 'inset 3px 0 0 0', edge(1, i % N < N - 1) && 'inset -3px 0 0 0'].filter(Boolean);
+      b.style.setProperty('--hull', sides.map(s => s + ' var(--ink)').join(', ') || 'none');
+    }
+    b.disabled = true;
+    b.setAttribute('aria-label', `${label(i)}, ${ship ? 'your ship' : 'water'}${s ? ', ' + s : ''}`);
+  });
+  els.jevGrid.classList.toggle('live', phase === 'human');
+  paintFleet(els.jevFleet, jev);
+  paintFleet(els.myFleet, me);
+  els.shotCount.textContent = stats.shots ? `${stats.shots} shot${stats.shots === 1 ? '' : 's'}` : '';
+}
+
+function paintFleet(root, side) {
+  root.textContent = '';
+  for (const s of side.ships) {
+    const li = document.createElement('li');
+    const down = s.hits === s.len;
+    if (down) li.className = 'down';
+    li.innerHTML = '<i></i>'.repeat(s.len);
+    li.setAttribute('aria-label', `${s.name}, ${down ? 'sunk' : 'afloat'}`);
+    root.append(li);
+  }
+}
+
+function overprint(probs) {
+  const live = probs.filter(p => p > 0);
+  const max = Math.max(...live, 1e-9);
+  const min = live.length > 1 ? Math.min(...live) : 0;
+  const top = probs.map((p, i) => [p, i]).sort((a, b) => b[0] - a[0]).slice(0, 5).filter(([p]) => p >= .01);
+  myCells.forEach((b, i) => {
+    // Stretch between the least and most likely square so a flat belief still reads.
+    const rel = max > min ? (probs[i] - min) / (max - min) : 1;
+    const alpha = probs[i] > 0 ? .06 + .74 * Math.pow(rel, .8) : 0;
+    b.firstChild.style.opacity = alpha.toFixed(3);
+    const pct = b.lastChild;
+    const shown = top.find(([, at]) => at === i);
+    pct.textContent = shown ? Math.round(shown[0] * 100) + '%' : '';
+    pct.classList.toggle('loud', alpha > .5);
+    b.classList.remove('aim');
+  });
+}
+
+function telemetry() {
+  if (!stats.ms.length) return;
+  const avg = Math.round(stats.ms.reduce((a, b) => a + b, 0) / stats.ms.length);
+  els.tele.hidden = false;
+  $('t-last').textContent = `${stats.ms[stats.ms.length - 1]} ms`;
+  $('t-avg').textContent = `${avg} ms`;
+  $('t-tokens').textContent = stats.tokens >= 1000 ? `${Math.round(stats.tokens / 1000)}k` : String(stats.tokens);
+  $('t-cost').textContent = '$' + (stats.tokens * PRICE_PER_TOKEN).toFixed(4);
+}
+
+function setView(view) {
+  els.charts.dataset.view = view;
+  document.querySelectorAll('.views button').forEach(t => t.setAttribute('aria-pressed', String(t.dataset.view === view)));
+}
+document.querySelectorAll('.views button').forEach(t => t.addEventListener('click', () => setView(t.dataset.view)));
+
+const say = (text, thinking = false) => {
+  els.status.textContent = text;
+  els.log.classList.toggle('thinking', thinking);
+  els.myNeat.classList.toggle('reading', thinking);
+};
+
+function boardForJev() {
+  return me.shots.map(s => s === 'miss' ? 'o' : s === 'hit' ? 'x' : s === 'sunk' ? '#' : '.').join('');
+}
+
+async function askJev() {
+  const board = boardForJev();
+  const remaining = afloat(me).map(s => s.len);
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 15000);
+  try {
+    const res = await fetch('/api/shot', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ board, remaining }),
+      signal: ctl.signal,
+    });
+    clearTimeout(timer);
+    if (!res.ok) throw new Error('status ' + res.status);
+    const data = await res.json();
+    const probs = new Array(N * N).fill(0);
+    for (const [key, p] of Object.entries(data.probabilities || {})) {
+      const i = ROWS.indexOf(key[0]) * N + Number(key.slice(1)) - 1;
+      probs[i] = p;
+    }
+    const target = ROWS.indexOf(data.choice[0]) * N + Number(data.choice.slice(1)) - 1;
+    if (board[target] !== '.') throw new Error('illegal choice');
+    return { target, probs, ms: data.ms, tokens: data.tokens || 0 };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function humanShot(i) {
+  if (phase !== 'human' || jev.shots[i]) return;
+  phase = 'busy';
+  stats.shots++;
+  const out = fire(jev, i);
+  paint('jev:' + i);
+  if (out.sunk) say(`${label(i)}: you sank its ${out.sunk.name}.`);
+  else say(out.hit ? `${label(i)}: hit.` : `${label(i)}: miss.`);
+  if (!cellsLeft(jev)) return finish(true);
+  await sleep(out.hit ? 750 : 450);
+  jevTurn();
+}
+
+async function jevTurn() {
+  phase = 'busy';
+  $('retry').hidden = true;
+  setView('mine');
+  say('Jev is reading your waters.', true);
+  let shot;
+  try { shot = await askJev(); }
+  catch {
+    phase = 'jev-error';
+    say('Jev did not answer. Ask it again to carry on.');
+    $('retry').hidden = false;
+    return;
+  }
+  stats.jevShots++;
+  stats.tokens += shot.tokens;
+  stats.ms.push(shot.ms);
+  say('Jev is reading your waters.', false);
+  overprint(shot.probs);
+  telemetry();
+  const belief = Math.round(shot.probs[shot.target] * 100);
+  els.aimNote.textContent = `${belief}% on ${label(shot.target)}`;
+  say(`Jev is aiming at ${label(shot.target)}.`);
+  await sleep(650);
+  myCells[shot.target].classList.add('aim');
+  await sleep(400);
+  const out = fire(me, shot.target);
+  paint('me:' + shot.target);
+  if (out.sunk) say(`${label(shot.target)}: Jev sank your ${out.sunk.name}.`);
+  else say(`${label(shot.target)}: Jev ${out.hit ? 'hit you' : 'missed'}.`);
+  if (!cellsLeft(me)) return finish(false);
+  await sleep(800);
+  phase = 'human';
+  setView('jev');
+  paint();
+  say('Your shot.');
+}
+
+function shareGrid() {
+  let out = '';
+  for (let i = 0; i < N * N; i++) {
+    const s = jev.shots[i];
+    out += s === 'miss' ? '⬜' : s ? '🟥' : '🟦';
+    if (i % N === N - 1 && i < N * N - 1) out += '\n';
+  }
+  return out;
+}
+
+function finish(won) {
+  phase = 'over';
+  paint();
+  const jevNeeded = cellsLeft(me);
+  const iNeeded = cellsLeft(jev);
+  const landed = FLEET_CELLS - iNeeded;
+  const rows = won
+    ? [['Win', 500], [`${N * N - stats.shots} shots to spare`, 10 * (N * N - stats.shots)], [`Jev still needed ${jevNeeded} hits`, 25 * jevNeeded]]
+    : [[`${landed} hits landed`, 25 * landed]];
+  const score = rows.reduce((n, r) => n + r[1], 0);
+
+  let best = 0;
+  try { best = Number(localStorage.getItem('jev-battleship-best')) || 0; } catch {}
+  if (score > best) { try { localStorage.setItem('jev-battleship-best', String(score)); } catch {} }
+
+  $('result-title').textContent = won ? 'You sank Jev' : 'Jev sank you';
+  const avg = stats.ms.length ? Math.round(stats.ms.reduce((a, b) => a + b, 0) / stats.ms.length) : 0;
+  const bits = [won
+    ? `Its fleet went down in ${stats.shots} shots, with Jev ${jevNeeded} ${jevNeeded === 1 ? 'hit' : 'hits'} from beating you.`
+    : `Jev needed ${stats.jevShots} shots. You were ${iNeeded} ${iNeeded === 1 ? 'hit' : 'hits'} short.`];
+  if (avg) bits.push(`It answered in ${avg} ms on average, for ${'$' + (stats.tokens * PRICE_PER_TOKEN).toFixed(4)}.`);
+  $('result-sum').textContent = bits.join(' ');
+  $('score').textContent = score.toLocaleString('en-US');
+  $('best').textContent = score > best && best ? `new best, up from ${best.toLocaleString('en-US')}` : best > score ? `your best: ${best.toLocaleString('en-US')}` : 'points';
+  $('break').innerHTML = rows.map(([k, v]) => `<li><span>${k}</span><span>+${v}</span></li>`).join('');
+
+  const url = location.origin + location.pathname;
+  const head = won
+    ? `I sank Jev's fleet in ${stats.shots} shots. Jev was ${jevNeeded} ${jevNeeded === 1 ? 'hit' : 'hits'} away from sinking mine.`
+    : `Jev sank my fleet in ${stats.jevShots} shots. I was ${iNeeded} ${iNeeded === 1 ? 'hit' : 'hits'} short.`;
+  $('share-text').value = `${head}\nScore: ${score.toLocaleString('en-US')}\n\n${shareGrid()}\n\nPlay Battleship against Jev: ${url}`;
+  $('copy').textContent = 'Copy result';
+  setTimeout(() => { $('share-text').scrollTop = 0; }, 950);
+  say(won ? 'You won. Every ship of its fleet is down.' : 'Jev won. Its surviving ships are now marked on its chart.');
+  setTimeout(() => els.dialog.showModal(), 900);
+}
+
+$('copy').addEventListener('click', async () => {
+  const box = $('share-text');
+  let ok = false;
+  try { await navigator.clipboard.writeText(box.value); ok = true; } catch {}
+  if (!ok) {
+    box.focus();
+    box.select();
+    try { ok = document.execCommand('copy'); } catch {}
+  }
+  $('copy').textContent = ok ? 'Copied' : 'Select the text and copy it';
+});
+
+function reset() {
+  me = newSide();
+  jev = newSide();
+  phase = 'setup';
+  $('retry').hidden = true;
+  stats = { shots: 0, jevShots: 0, tokens: 0, ms: [] };
+  overprint(new Array(N * N).fill(0));
+  els.tele.hidden = true;
+  els.aimNote.textContent = '';
+  els.setup.hidden = false;
+  setView('mine');
+  paint();
+  say('Your fleet is placed. Reshuffle it, or play.');
+}
+
+$('retry').addEventListener('click', () => { if (phase === 'jev-error') jevTurn(); });
+$('shuffle').addEventListener('click', () => { me.ships = placeFleet(); paint(); });
+$('start').addEventListener('click', () => {
+  phase = 'human';
+  els.setup.hidden = true;
+  setView('jev');
+  paint();
+  say('Your shot. Pick a square in Jev’s waters.');
+});
+$('again').addEventListener('click', () => { els.dialog.close(); reset(); });
+
+reset();
+</script>
+</body>
+</html>

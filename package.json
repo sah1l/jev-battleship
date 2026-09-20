@@ -1,0 +1,20 @@
+{
+  "name": "jev-battleship",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Battleship against Jev, a model that answers in probabilities, plus a CLI arena that plays it against general-purpose LLMs on identical fleets.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test",
+    "probe": "node probe.mjs",
+    "arena": "node arena/arena.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@typesafe-ai/sdk": "^0.6.0"
+  }
+}

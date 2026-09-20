@@ -1,0 +1,549 @@
+{
+ "note": "Head-to-head games on the public game page. Jev latency, tokens and cost are the figures the page reported. The rivals played as browser agents, so their pace includes browser control and their tokens were not metered.",
+ "matches": [
+  {
+   "key": "fable",
+   "name": "Claude Fable 5.1",
+   "vendor": "agent playing in Chrome",
+   "winner": "rival",
+   "jevTokens": 102980,
+   "jevCostUsd": 0.0043,
+   "jevMeanMs": 814,
+   "wallSeconds": 371,
+   "turns": [
+    {
+     "n": 1,
+     "rivalShot": "D4",
+     "rivalBoard": "...........................x....................................",
+     "jevShot": "E4",
+     "jevBoard": "...................................o............................",
+     "jevMs": 1202
+    },
+    {
+     "n": 2,
+     "rivalShot": "D5",
+     "rivalBoard": "...........................xx...................................",
+     "jevShot": "C3",
+     "jevBoard": "..................o................o............................",
+     "jevMs": 924
+    },
+    {
+     "n": 3,
+     "rivalShot": "D3",
+     "rivalBoard": "..........................xxx...................................",
+     "jevShot": "D5",
+     "jevBoard": "..................o.........o......o............................",
+     "jevMs": 376
+    },
+    {
+     "n": 4,
+     "rivalShot": "D6",
+     "rivalBoard": "..........................x###..................................",
+     "jevShot": "F6",
+     "jevBoard": "..................o.........o......o.........o..................",
+     "jevMs": 1227
+    },
+    {
+     "n": 5,
+     "rivalShot": "D2",
+     "rivalBoard": ".........................ox###..................................",
+     "jevShot": "C6",
+     "jevBoard": "..................o..x......o......o.........o..................",
+     "jevMs": 1201
+    },
+    {
+     "n": 6,
+     "rivalShot": "C3",
+     "rivalBoard": "..................#......o####..................................",
+     "jevShot": "B6",
+     "jevBoard": ".............o....o..x......o......o.........o..................",
+     "jevMs": 1165
+    },
+    {
+     "n": 7,
+     "rivalShot": "E3",
+     "rivalBoard": "..................#......o####....o.............................",
+     "jevShot": "C7",
+     "jevBoard": ".............o....o..xo.....o......o.........o..................",
+     "jevMs": 359
+    },
+    {
+     "n": 8,
+     "rivalShot": "F6",
+     "rivalBoard": "..................#......o####....o..........o..................",
+     "jevShot": "C5",
+     "jevBoard": ".............o....o.##o.....o......o.........o..................",
+     "jevMs": 1187
+    },
+    {
+     "n": 9,
+     "rivalShot": "B5",
+     "rivalBoard": "............o.....#......o####....o..........o..................",
+     "jevShot": "F3",
+     "jevBoard": ".............o....o.##o.....o......o......o..o..................",
+     "jevMs": 360
+    },
+    {
+     "n": 10,
+     "rivalShot": "G4",
+     "rivalBoard": "............o.....#......o####....o..........o.....o............",
+     "jevShot": "G5",
+     "jevBoard": ".............o....o.##o.....o......o......o..o......x...........",
+     "jevMs": 427
+    },
+    {
+     "n": 11,
+     "rivalShot": "D7",
+     "rivalBoard": "............o.....#......o####o...o..........o.....o............",
+     "jevShot": "G4",
+     "jevBoard": ".............o....o.##o.....o......o......o..o.....ox...........",
+     "jevMs": 1203
+    },
+    {
+     "n": 12,
+     "rivalShot": "E5",
+     "rivalBoard": "............o.....#......o####o...o.o........o.....o............",
+     "jevShot": "H5",
+     "jevBoard": ".............o....o.##o.....o......o......o..o.....ox.......o...",
+     "jevMs": 367
+    },
+    {
+     "n": 13,
+     "rivalShot": "B2",
+     "rivalBoard": ".........o..o.....#......o####o...o.o........o.....o............",
+     "jevShot": "G6",
+     "jevBoard": ".............o....o.##o.....o......o......o..o.....oxx......o...",
+     "jevMs": 492
+    },
+    {
+     "n": 14,
+     "rivalShot": "G7",
+     "rivalBoard": ".........o..o.....#......o####o...o.o........o.....o..x.........",
+     "jevShot": "G7",
+     "jevBoard": ".............o....o.##o.....o......o......o..o.....o###.....o...",
+     "jevMs": 1193
+    },
+    {
+     "n": 15,
+     "rivalShot": "H2",
+     "rivalBoard": ".........o..o.....#......o####o...o.o........o.....o..x..o......",
+     "jevShot": "D2",
+     "jevBoard": ".............o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 376
+    },
+    {
+     "n": 16,
+     "rivalShot": "A7",
+     "rivalBoard": "......o..o..o.....#......o####o...o.o........o.....o..x..o......",
+     "jevShot": "A4",
+     "jevBoard": "...x.........o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 355
+    },
+    {
+     "n": 17,
+     "rivalShot": "G6",
+     "rivalBoard": "......o..o..o.....#......o####o...o.o........o.....o.xx..o......",
+     "jevShot": "B4",
+     "jevBoard": "...x.......o.o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 1195
+    },
+    {
+     "n": 18,
+     "rivalShot": "G8",
+     "rivalBoard": "......o..o..o.....#......o####o...o.o........o.....o.###.o......",
+     "jevShot": "A3",
+     "jevBoard": "..xx.......o.o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 420
+    },
+    {
+     "n": 19,
+     "rivalShot": "E1",
+     "rivalBoard": "......o..o..o.....#......o####o.o.o.o........o.....o.###.o......",
+     "jevShot": "A5",
+     "jevBoard": "..xxx......o.o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 1179
+    },
+    {
+     "n": 20,
+     "rivalShot": "C8",
+     "rivalBoard": "......o..o..o.....#....o.o####o.o.o.o........o.....o.###.o......",
+     "jevShot": "A2",
+     "jevBoard": ".oxxx......o.o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 381
+    },
+    {
+     "n": 21,
+     "rivalShot": "A4",
+     "rivalBoard": "...o..o..o..o.....#....o.o####o.o.o.o........o.....o.###.o......",
+     "jevShot": "A6",
+     "jevBoard": ".o####.....o.o....o.##o..o..o......o......o..o.....o###.....o...",
+     "jevMs": 1177
+    },
+    {
+     "n": 22,
+     "rivalShot": "H5",
+     "rivalBoard": "...o..o..o..o.....#....o.o####o.o.o.o........o.....o.###.o..o...",
+     "jevShot": "E1",
+     "jevBoard": ".o####.....o.o....o.##o..o..o...o..o......o..o.....o###.....o...",
+     "jevMs": 386
+    },
+    {
+     "n": 23,
+     "rivalShot": "F3",
+     "rivalBoard": "...o..o..o..o.....#....o.o####o.o.o.o.....o..o.....o.###.o..o...",
+     "jevShot": "H8",
+     "jevBoard": ".o####.....o.o....o.##o..o..o...o..o......o..o.....o###.....o..o",
+     "jevMs": 1193
+    },
+    {
+     "n": 24,
+     "rivalShot": "C5",
+     "rivalBoard": "...o..o..o..o.....#.x..o.o####o.o.o.o.....o..o.....o.###.o..o...",
+     "jevShot": "D8",
+     "jevBoard": ".o####.....o.o....o.##o..o..o..oo..o......o..o.....o###.....o..o",
+     "jevMs": 1151
+    },
+    {
+     "n": 25,
+     "rivalShot": "C4",
+     "rivalBoard": "...o..o..o..o.....#xx..o.o####o.o.o.o.....o..o.....o.###.o..o...",
+     "jevShot": "G2",
+     "jevBoard": ".o####.....o.o....o.##o..o..o..oo..o......o..o...o.o###.....o..o",
+     "jevMs": 1178
+    },
+    {
+     "n": 26,
+     "rivalShot": "C6",
+     "rivalBoard": "...o..o..o..o.....#xxx.o.o####o.o.o.o.....o..o.....o.###.o..o...",
+     "jevShot": "E7",
+     "jevBoard": ".o####.....o.o....o.##o..o..o..oo..o..x...o..o...o.o###.....o..o",
+     "jevMs": 488
+    },
+    {
+     "n": 27,
+     "rivalShot": "C7",
+     "rivalBoard": "...o..o..o..o.....#####o.o####o.o.o.o.....o..o.....o.###.o..o...",
+     "jevShot": null,
+     "jevBoard": ".o####.....o.o....o.##o..o..o..oo..o..x...o..o...o.o###.....o..o",
+     "jevMs": null
+    }
+   ],
+   "rivalShots": 27,
+   "jevShots": 26,
+   "jevHits": 10,
+   "jevMedianMs": 1151
+  },
+  {
+   "key": "astra",
+   "name": "Astra (Codex)",
+   "vendor": "agent playing in Chrome",
+   "winner": "rival",
+   "jevTokens": 131446,
+   "jevCostUsd": 0.0055,
+   "jevMeanMs": 963,
+   "wallSeconds": 702,
+   "turns": [
+    {
+     "n": 1,
+     "rivalShot": "D4",
+     "rivalBoard": "...........................o....................................",
+     "jevShot": "E4",
+     "jevBoard": "...................................o............................",
+     "jevMs": 1215
+    },
+    {
+     "n": 2,
+     "rivalShot": "C5",
+     "rivalBoard": "....................o......o....................................",
+     "jevShot": "C3",
+     "jevBoard": "..................o................o............................",
+     "jevMs": 1278
+    },
+    {
+     "n": 3,
+     "rivalShot": "E5",
+     "rivalBoard": "....................o......o........o...........................",
+     "jevShot": "F5",
+     "jevBoard": "..................o................o........o...................",
+     "jevMs": 1166
+    },
+    {
+     "n": 4,
+     "rivalShot": "F4",
+     "rivalBoard": "....................o......o........o......x....................",
+     "jevShot": "C6",
+     "jevBoard": "..................o..o.............o........o...................",
+     "jevMs": 1238
+    },
+    {
+     "n": 5,
+     "rivalShot": "F5",
+     "rivalBoard": "....................o......o........o......xo...................",
+     "jevShot": "D2",
+     "jevBoard": "..................o..o...o.........o........o...................",
+     "jevMs": 1197
+    },
+    {
+     "n": 6,
+     "rivalShot": "F3",
+     "rivalBoard": "....................o......o........o.....oxo...................",
+     "jevShot": "B4",
+     "jevBoard": "...........o......o..o...o.........o........o...................",
+     "jevMs": 1233
+    },
+    {
+     "n": 7,
+     "rivalShot": "E4",
+     "rivalBoard": "....................o......o.......xo.....oxo...................",
+     "jevShot": "G6",
+     "jevBoard": "...........o......o..o...o.........o........o........o..........",
+     "jevMs": 1194
+    },
+    {
+     "n": 8,
+     "rivalShot": "G4",
+     "rivalBoard": "....................o......o.......xo.....oxo......x............",
+     "jevShot": "A2",
+     "jevBoard": ".x.........o......o..o...o.........o........o........o..........",
+     "jevMs": 1215
+    },
+    {
+     "n": 9,
+     "rivalShot": "H4",
+     "rivalBoard": "....................o......o.......#o.....o#o......#.......#....",
+     "jevShot": "B2",
+     "jevBoard": ".x.......o.o......o..o...o.........o........o........o..........",
+     "jevMs": 1174
+    },
+    {
+     "n": 10,
+     "rivalShot": "B3",
+     "rivalBoard": "..........o.........o......o.......#o.....o#o......#.......#....",
+     "jevShot": "A3",
+     "jevBoard": ".xx......o.o......o..o...o.........o........o........o..........",
+     "jevMs": 943
+    },
+    {
+     "n": 11,
+     "rivalShot": "B6",
+     "rivalBoard": "..........o..o......o......o.......#o.....o#o......#.......#....",
+     "jevShot": "A1",
+     "jevBoard": "xxx......o.o......o..o...o.........o........o........o..........",
+     "jevMs": 1225
+    },
+    {
+     "n": 12,
+     "rivalShot": "D7",
+     "rivalBoard": "..........o..o......o......o..o....#o.....o#o......#.......#....",
+     "jevShot": "A4",
+     "jevBoard": "####.....o.o......o..o...o.........o........o........o..........",
+     "jevMs": 1173
+    },
+    {
+     "n": 13,
+     "rivalShot": "F7",
+     "rivalBoard": "..........o..o......o......o..o....#o.....o#o.o....#.......#....",
+     "jevShot": "D7",
+     "jevBoard": "####.....o.o......o..o...o....o....o........o........o..........",
+     "jevMs": 999
+    },
+    {
+     "n": 14,
+     "rivalShot": "D2",
+     "rivalBoard": "..........o..o......o....o.o..o....#o.....o#o.o....#.......#....",
+     "jevShot": "F3",
+     "jevBoard": "####.....o.o......o..o...o....o....o......o.o........o..........",
+     "jevMs": 1261
+    },
+    {
+     "n": 15,
+     "rivalShot": "G2",
+     "rivalBoard": "..........o..o......o....o.o..o....#o.....o#o.o..x.#.......#....",
+     "jevShot": "G2",
+     "jevBoard": "####.....o.o......o..o...o....o....o......o.o....o...o..........",
+     "jevMs": 1173
+    },
+    {
+     "n": 16,
+     "rivalShot": "G3",
+     "rivalBoard": "..........o..o......o....o.o..o....#o.....o#o.o..xo#.......#....",
+     "jevShot": "D5",
+     "jevBoard": "####.....o.o......o..o...o..o.o....o......o.o....o...o..........",
+     "jevMs": 1158
+    },
+    {
+     "n": 17,
+     "rivalShot": "G1",
+     "rivalBoard": "..........o..o......o....o.o..o....#o.....o#o.o.oxo#.......#....",
+     "jevShot": "E1",
+     "jevBoard": "####.....o.o......o..o...o..o.o.x..o......o.o....o...o..........",
+     "jevMs": 372
+    },
+    {
+     "n": 18,
+     "rivalShot": "F2",
+     "rivalBoard": "..........o..o......o....o.o..o....#o....xo#o.o.oxo#.......#....",
+     "jevShot": "E2",
+     "jevBoard": "####.....o.o......o..o...o..o.o.xo.o......o.o....o...o..........",
+     "jevMs": 1282
+    },
+    {
+     "n": 19,
+     "rivalShot": "E2",
+     "rivalBoard": "..........o..o......o....o.o..o..#.#o....#o#o.o.o#o#.......#....",
+     "jevShot": "F1",
+     "jevBoard": "####.....o.o......o..o...o..o.o.xo.o....o.o.o....o...o..........",
+     "jevMs": 446
+    },
+    {
+     "n": 20,
+     "rivalShot": "B1",
+     "rivalBoard": "........o.o..o......o....o.o..o..#.#o....#o#o.o.o#o#.......#....",
+     "jevShot": "D1",
+     "jevBoard": "####.....o.o......o..o..xo..o.o.xo.o....o.o.o....o...o..........",
+     "jevMs": 899
+    },
+    {
+     "n": 21,
+     "rivalShot": "A4",
+     "rivalBoard": "...o....o.o..o......o....o.o..o..#.#o....#o#o.o.o#o#.......#....",
+     "jevShot": "C1",
+     "jevBoard": "####.....o.o....#.o..o..#o..o.o.#o.o....o.o.o....o...o..........",
+     "jevMs": 390
+    },
+    {
+     "n": 22,
+     "rivalShot": "G6",
+     "rivalBoard": "...o....o.o..o......o....o.o..o..#.#o....#o#o.o.o#o#.x.....#....",
+     "jevShot": "B7",
+     "jevBoard": "####.....o.o..o.#.o..o..#o..o.o.#o.o....o.o.o....o...o..........",
+     "jevMs": 376
+    },
+    {
+     "n": 23,
+     "rivalShot": "G7",
+     "rivalBoard": "...o....o.o..o......o....o.o..o..#.#o....#o#o.o.o#o#.xo....#....",
+     "jevShot": "G4",
+     "jevBoard": "####.....o.o..o.#.o..o..#o..o.o.#o.o....o.o.o....o.o.o..........",
+     "jevMs": 1249
+    },
+    {
+     "n": 24,
+     "rivalShot": "F6",
+     "rivalBoard": "...o....o.o..o......o....o.o..o..#.#o....#o#ooo.o#o#.xo....#....",
+     "jevShot": "H8",
+     "jevBoard": "####.....o.o..o.#.o..o..#o..o.o.#o.o....o.o.o....o.o.o.........o",
+     "jevMs": 1264
+    },
+    {
+     "n": 25,
+     "rivalShot": "H6",
+     "rivalBoard": "...o....o.o..o......o....o.o..o..#.#o....#o#ooo.o#o#.#o....#.#..",
+     "jevShot": "E6",
+     "jevBoard": "####.....o.o..o.#.o..o..#o..o.o.#o.o.o..o.o.o....o.o.o.........o",
+     "jevMs": 1219
+    },
+    {
+     "n": 26,
+     "rivalShot": "C7",
+     "rivalBoard": "...o....o.o..o......o.o..o.o..o..#.#o....#o#ooo.o#o#.#o....#.#..",
+     "jevShot": "F7",
+     "jevBoard": "####.....o.o..o.#.o..o..#o..o.o.#o.o.o..o.o.o.o..o.o.o.........o",
+     "jevMs": 1158
+    },
+    {
+     "n": 27,
+     "rivalShot": "C3",
+     "rivalBoard": "...o....o.o..o....o.o.o..o.o..o..#.#o....#o#ooo.o#o#.#o....#.#..",
+     "jevShot": "A8",
+     "jevBoard": "####...o.o.o..o.#.o..o..#o..o.o.#o.o.o..o.o.o.o..o.o.o.........o",
+     "jevMs": 375
+    },
+    {
+     "n": 28,
+     "rivalShot": "A6",
+     "rivalBoard": "...o.o..o.o..o....o.o.o..o.o..o..#.#o....#o#ooo.o#o#.#o....#.#..",
+     "jevShot": "E8",
+     "jevBoard": "####...o.o.o..o.#.o..o..#o..o.o.#o.o.o.xo.o.o.o..o.o.o.........o",
+     "jevMs": 380
+    },
+    {
+     "n": 29,
+     "rivalShot": "D8",
+     "rivalBoard": "...o.o..o.o..o....o.o.o..o.o..oo.#.#o....#o#ooo.o#o#.#o....#.#..",
+     "jevShot": "E7",
+     "jevBoard": "####...o.o.o..o.#.o..o..#o..o.o.#o.o.ooxo.o.o.o..o.o.o.........o",
+     "jevMs": 1220
+    },
+    {
+     "n": 30,
+     "rivalShot": "A2",
+     "rivalBoard": ".o.o.o..o.o..o....o.o.o..o.o..oo.#.#o....#o#ooo.o#o#.#o....#.#..",
+     "jevShot": "G8",
+     "jevBoard": "####...o.o.o..o.#.o..o..#o..o.o.#o.o.ooxo.o.o.o..o.o.o.o.......o",
+     "jevMs": 386
+    },
+    {
+     "n": 31,
+     "rivalShot": "F8",
+     "rivalBoard": ".o.o.o..o.o..o....o.o.o..o.o..oo.#.#o....#o#ooooo#o#.#o....#.#..",
+     "jevShot": "D8",
+     "jevBoard": "####...o.o.o..o.#.o..o..#o..o.ox#o.o.ooxo.o.o.o..o.o.o.o.......o",
+     "jevMs": 416
+    },
+    {
+     "n": 32,
+     "rivalShot": "E1",
+     "rivalBoard": ".o.o.o..o.o..o....o.o.o..o.o..ooo#.#o....#o#ooooo#o#.#o....#.#..",
+     "jevShot": "C8",
+     "jevBoard": "####...o.o.o..o.#.o..o.o#o..o.ox#o.o.ooxo.o.o.o..o.o.o.o.......o",
+     "jevMs": 1210
+    },
+    {
+     "n": 33,
+     "rivalShot": "E7",
+     "rivalBoard": ".o.o.o..o.o..o....o.o.o..o.o..ooo#.#o.o..#o#ooooo#o#.#o....#.#..",
+     "jevShot": "F8",
+     "jevBoard": "####...o.o.o..o.#.o..o.o#o..o.o##o.o.oo#o.o.o.o#.o.o.o.o.......o",
+     "jevMs": 338
+    },
+    {
+     "n": 34,
+     "rivalShot": "D6",
+     "rivalBoard": ".o.o.o..o.o..o....o.o.o..o.o.oooo#.#o.o..#o#ooooo#o#.#o....#.#..",
+     "jevShot": "H3",
+     "jevBoard": "####...o.o.o..o.#.o..o.o#o..o.o##o.o.oo#o.o.o.o#.o.o.o.o..o....o",
+     "jevMs": 374
+    },
+    {
+     "n": 35,
+     "rivalShot": "B8",
+     "rivalBoard": ".o.o.o..o.o..o.x..o.o.o..o.o.oooo#.#o.o..#o#ooooo#o#.#o....#.#..",
+     "jevShot": "A6",
+     "jevBoard": "####.o.o.o.o..o.#.o..o.o#o..o.o##o.o.oo#o.o.o.o#.o.o.o.o..o....o",
+     "jevMs": 1286
+    },
+    {
+     "n": 36,
+     "rivalShot": "A8",
+     "rivalBoard": ".o.o.o.xo.o..o.x..o.o.o..o.o.oooo#.#o.o..#o#ooooo#o#.#o....#.#..",
+     "jevShot": "H5",
+     "jevBoard": "####.o.o.o.o..o.#.o..o.o#o..o.o##o.o.oo#o.o.o.o#.o.o.o.o..o.o..o",
+     "jevMs": 1199
+    },
+    {
+     "n": 37,
+     "rivalShot": "C8",
+     "rivalBoard": ".o.o.o.#o.o..o.#..o.o.o#.o.o.oooo#.#o.o..#o#ooooo#o#.#o....#.#..",
+     "jevShot": null,
+     "jevBoard": "####.o.o.o.o..o.#.o..o.o#o..o.o##o.o.oo#o.o.o.o#.o.o.o.o..o.o..o",
+     "jevMs": null
+    }
+   ],
+   "rivalShots": 37,
+   "jevShots": 36,
+   "jevHits": 10,
+   "jevMedianMs": 1174
+  }
+ ]
+}
