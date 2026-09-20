@@ -46,8 +46,9 @@ near-far and neighbours are tied on shots within noise; near-far was kept for it
 which is what a human opponent notices. Tokens per match fell from about 140k to about 105k.
 
 Known remaining leak: finding the last 2-cell ship late in the game, when every open cell has a fired
-neighbour. Two endgame wordings were tried on 39 late positions and made no difference (0.83 to 0.86),
-so wording has plateaued there.
+neighbour. Two endgame wordings, `near-far-end` and `near-far-end2` in `variants.mjs`, were graded on
+39 late positions sampled from saved games and made no difference (0.83 to 0.86), so wording has
+plateaued there. That probe read the raw game files, which are not committed, so it is not here either.
 
 ## Is this still "no code logic"?
 
